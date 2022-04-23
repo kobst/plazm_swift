@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B4E6171E46F7E4675899120 /* Pods_plazm_swift_plazm_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17CD139781ED91EDF410835 /* Pods_plazm_swift_plazm_swiftUITests.framework */; };
+		A83849FA60B49D44513B8AEF /* Pods_plazm_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568306CEDADEDF70180E8347 /* Pods_plazm_swiftTests.framework */; };
+		DA04B01FF28D5ED42C5FB09D /* Pods_plazm_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5BB6F976C254BA6B58E0D6F /* Pods_plazm_swift.framework */; };
 		E706C7EB2814C6760078F2B0 /* plazm_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */; };
 		E706C7ED2814C6760078F2B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C7EC2814C6760078F2B0 /* ContentView.swift */; };
 		E706C7EF2814C6760078F2B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E706C7EE2814C6760078F2B0 /* Assets.xcassets */; };
@@ -34,6 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15264768FC730512DC38ACA4 /* Pods-plazm_swift-plazm_swiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swift-plazm_swiftUITests.release.xcconfig"; path = "Target Support Files/Pods-plazm_swift-plazm_swiftUITests/Pods-plazm_swift-plazm_swiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		568306CEDADEDF70180E8347 /* Pods_plazm_swiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		833045E4A5A8F5484B40D187 /* Pods-plazm_swift-plazm_swiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swift-plazm_swiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-plazm_swift-plazm_swiftUITests/Pods-plazm_swift-plazm_swiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A17CD139781ED91EDF410835 /* Pods_plazm_swift_plazm_swiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swift_plazm_swiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1A3BA49013437E2C13CF152 /* Pods-plazm_swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swiftTests.debug.xcconfig"; path = "Target Support Files/Pods-plazm_swiftTests/Pods-plazm_swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D6AD98C7FC6030D605FADE5D /* Pods-plazm_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swift.debug.xcconfig"; path = "Target Support Files/Pods-plazm_swift/Pods-plazm_swift.debug.xcconfig"; sourceTree = "<group>"; };
+		E63055A3FC6B3B5513F9C88D /* Pods-plazm_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swift.release.xcconfig"; path = "Target Support Files/Pods-plazm_swift/Pods-plazm_swift.release.xcconfig"; sourceTree = "<group>"; };
 		E706C7E72814C6760078F2B0 /* plazm_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plazm_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftApp.swift; sourceTree = "<group>"; };
 		E706C7EC2814C6760078F2B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +54,8 @@
 		E706C8012814C6760078F2B0 /* plazm_swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = plazm_swiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E706C8052814C6760078F2B0 /* plazm_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftUITests.swift; sourceTree = "<group>"; };
 		E706C8072814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F4BC3025730F4E1ECEA3C2CA /* Pods-plazm_swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swiftTests.release.xcconfig"; path = "Target Support Files/Pods-plazm_swiftTests/Pods-plazm_swiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		F5BB6F976C254BA6B58E0D6F /* Pods_plazm_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA04B01FF28D5ED42C5FB09D /* Pods_plazm_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A83849FA60B49D44513B8AEF /* Pods_plazm_swiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,12 +79,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B4E6171E46F7E4675899120 /* Pods_plazm_swift_plazm_swiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95A4B5CFEDA5DEC66BAC7180 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6AD98C7FC6030D605FADE5D /* Pods-plazm_swift.debug.xcconfig */,
+				E63055A3FC6B3B5513F9C88D /* Pods-plazm_swift.release.xcconfig */,
+				833045E4A5A8F5484B40D187 /* Pods-plazm_swift-plazm_swiftUITests.debug.xcconfig */,
+				15264768FC730512DC38ACA4 /* Pods-plazm_swift-plazm_swiftUITests.release.xcconfig */,
+				C1A3BA49013437E2C13CF152 /* Pods-plazm_swiftTests.debug.xcconfig */,
+				F4BC3025730F4E1ECEA3C2CA /* Pods-plazm_swiftTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DE5AE6DC9C2669BA7DADE965 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5BB6F976C254BA6B58E0D6F /* Pods_plazm_swift.framework */,
+				A17CD139781ED91EDF410835 /* Pods_plazm_swift_plazm_swiftUITests.framework */,
+				568306CEDADEDF70180E8347 /* Pods_plazm_swiftTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E706C7DE2814C6760078F2B0 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +117,8 @@
 				E706C7FA2814C6760078F2B0 /* plazm_swiftTests */,
 				E706C8042814C6760078F2B0 /* plazm_swiftUITests */,
 				E706C7E82814C6760078F2B0 /* Products */,
+				95A4B5CFEDA5DEC66BAC7180 /* Pods */,
+				DE5AE6DC9C2669BA7DADE965 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E706C80B2814C6760078F2B0 /* Build configuration list for PBXNativeTarget "plazm_swift" */;
 			buildPhases = (
+				22B915710F6A3A8E5FA86A87 /* [CP] Check Pods Manifest.lock */,
 				E706C7E32814C6760078F2B0 /* Sources */,
 				E706C7E42814C6760078F2B0 /* Frameworks */,
 				E706C7E52814C6760078F2B0 /* Resources */,
+				806D61CF9CD6BF85278F4E51 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E706C80E2814C6760078F2B0 /* Build configuration list for PBXNativeTarget "plazm_swiftTests" */;
 			buildPhases = (
+				5DA5BE40343FFEAD4BF008D0 /* [CP] Check Pods Manifest.lock */,
 				E706C7F32814C6760078F2B0 /* Sources */,
 				E706C7F42814C6760078F2B0 /* Frameworks */,
 				E706C7F52814C6760078F2B0 /* Resources */,
@@ -169,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E706C8112814C6760078F2B0 /* Build configuration list for PBXNativeTarget "plazm_swiftUITests" */;
 			buildPhases = (
+				7C17A48EAC972E8BA20F0A78 /* [CP] Check Pods Manifest.lock */,
 				E706C7FD2814C6760078F2B0 /* Sources */,
 				E706C7FE2814C6760078F2B0 /* Frameworks */,
 				E706C7FF2814C6760078F2B0 /* Resources */,
+				675F61FB05C727EF73AD3E2C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,6 +297,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22B915710F6A3A8E5FA86A87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-plazm_swift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DA5BE40343FFEAD4BF008D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-plazm_swiftTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		675F61FB05C727EF73AD3E2C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-plazm_swift-plazm_swiftUITests/Pods-plazm_swift-plazm_swiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-plazm_swift-plazm_swiftUITests/Pods-plazm_swift-plazm_swiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-plazm_swift-plazm_swiftUITests/Pods-plazm_swift-plazm_swiftUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C17A48EAC972E8BA20F0A78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-plazm_swift-plazm_swiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		806D61CF9CD6BF85278F4E51 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-plazm_swift/Pods-plazm_swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-plazm_swift/Pods-plazm_swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-plazm_swift/Pods-plazm_swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E706C7E32814C6760078F2B0 /* Sources */ = {
@@ -411,6 +560,7 @@
 		};
 		E706C80C2814C6760078F2B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6AD98C7FC6030D605FADE5D /* Pods-plazm_swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -439,6 +589,7 @@
 		};
 		E706C80D2814C6760078F2B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E63055A3FC6B3B5513F9C88D /* Pods-plazm_swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -467,6 +618,7 @@
 		};
 		E706C80F2814C6760078F2B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1A3BA49013437E2C13CF152 /* Pods-plazm_swiftTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -486,6 +638,7 @@
 		};
 		E706C8102814C6760078F2B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4BC3025730F4E1ECEA3C2CA /* Pods-plazm_swiftTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -505,6 +658,7 @@
 		};
 		E706C8122814C6760078F2B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 833045E4A5A8F5484B40D187 /* Pods-plazm_swift-plazm_swiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -522,6 +676,7 @@
 		};
 		E706C8132814C6760078F2B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15264768FC730512DC38ACA4 /* Pods-plazm_swift-plazm_swiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

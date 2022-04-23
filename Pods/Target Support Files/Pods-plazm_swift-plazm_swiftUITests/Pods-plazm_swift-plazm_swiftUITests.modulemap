@@ -1,0 +1,6 @@
+framework module Pods_plazm_swift_plazm_swiftUITests {
+  umbrella header "Pods-plazm_swift-plazm_swiftUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
