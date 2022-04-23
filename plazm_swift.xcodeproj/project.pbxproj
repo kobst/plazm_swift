@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E706C7EB2814C6760078F2B0 /* plazm_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */; };
+		E706C7ED2814C6760078F2B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C7EC2814C6760078F2B0 /* ContentView.swift */; };
+		E706C7EF2814C6760078F2B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E706C7EE2814C6760078F2B0 /* Assets.xcassets */; };
+		E706C7F22814C6760078F2B0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E706C7F12814C6760078F2B0 /* Preview Assets.xcassets */; };
+		E706C7FC2814C6760078F2B0 /* plazm_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C7FB2814C6760078F2B0 /* plazm_swiftTests.swift */; };
+		E706C8062814C6760078F2B0 /* plazm_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C8052814C6760078F2B0 /* plazm_swiftUITests.swift */; };
+		E706C8082814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C8072814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E706C7F82814C6760078F2B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E706C7DF2814C6760078F2B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E706C7E62814C6760078F2B0;
+			remoteInfo = plazm_swift;
+		};
+		E706C8022814C6760078F2B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E706C7DF2814C6760078F2B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E706C7E62814C6760078F2B0;
+			remoteInfo = plazm_swift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E706C7E72814C6760078F2B0 /* plazm_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plazm_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftApp.swift; sourceTree = "<group>"; };
+		E706C7EC2814C6760078F2B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E706C7EE2814C6760078F2B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E706C7F12814C6760078F2B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E706C7F72814C6760078F2B0 /* plazm_swiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = plazm_swiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E706C7FB2814C6760078F2B0 /* plazm_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftTests.swift; sourceTree = "<group>"; };
+		E706C8012814C6760078F2B0 /* plazm_swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = plazm_swiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E706C8052814C6760078F2B0 /* plazm_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftUITests.swift; sourceTree = "<group>"; };
+		E706C8072814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E706C7E42814C6760078F2B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E706C7F42814C6760078F2B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E706C7FE2814C6760078F2B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E706C7DE2814C6760078F2B0 = {
+			isa = PBXGroup;
+			children = (
+				E706C7E92814C6760078F2B0 /* plazm_swift */,
+				E706C7FA2814C6760078F2B0 /* plazm_swiftTests */,
+				E706C8042814C6760078F2B0 /* plazm_swiftUITests */,
+				E706C7E82814C6760078F2B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E706C7E82814C6760078F2B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E706C7E72814C6760078F2B0 /* plazm_swift.app */,
+				E706C7F72814C6760078F2B0 /* plazm_swiftTests.xctest */,
+				E706C8012814C6760078F2B0 /* plazm_swiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E706C7E92814C6760078F2B0 /* plazm_swift */ = {
+			isa = PBXGroup;
+			children = (
+				E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */,
+				E706C7EC2814C6760078F2B0 /* ContentView.swift */,
+				E706C7EE2814C6760078F2B0 /* Assets.xcassets */,
+				E706C7F02814C6760078F2B0 /* Preview Content */,
+			);
+			path = plazm_swift;
+			sourceTree = "<group>";
+		};
+		E706C7F02814C6760078F2B0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E706C7F12814C6760078F2B0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E706C7FA2814C6760078F2B0 /* plazm_swiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				E706C7FB2814C6760078F2B0 /* plazm_swiftTests.swift */,
+			);
+			path = plazm_swiftTests;
+			sourceTree = "<group>";
+		};
+		E706C8042814C6760078F2B0 /* plazm_swiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E706C8052814C6760078F2B0 /* plazm_swiftUITests.swift */,
+				E706C8072814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift */,
+			);
+			path = plazm_swiftUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E706C7E62814C6760078F2B0 /* plazm_swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E706C80B2814C6760078F2B0 /* Build configuration list for PBXNativeTarget "plazm_swift" */;
+			buildPhases = (
+				E706C7E32814C6760078F2B0 /* Sources */,
+				E706C7E42814C6760078F2B0 /* Frameworks */,
+				E706C7E52814C6760078F2B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = plazm_swift;
+			productName = plazm_swift;
+			productReference = E706C7E72814C6760078F2B0 /* plazm_swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E706C7F62814C6760078F2B0 /* plazm_swiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E706C80E2814C6760078F2B0 /* Build configuration list for PBXNativeTarget "plazm_swiftTests" */;
+			buildPhases = (
+				E706C7F32814C6760078F2B0 /* Sources */,
+				E706C7F42814C6760078F2B0 /* Frameworks */,
+				E706C7F52814C6760078F2B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E706C7F92814C6760078F2B0 /* PBXTargetDependency */,
+			);
+			name = plazm_swiftTests;
+			productName = plazm_swiftTests;
+			productReference = E706C7F72814C6760078F2B0 /* plazm_swiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E706C8002814C6760078F2B0 /* plazm_swiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E706C8112814C6760078F2B0 /* Build configuration list for PBXNativeTarget "plazm_swiftUITests" */;
+			buildPhases = (
+				E706C7FD2814C6760078F2B0 /* Sources */,
+				E706C7FE2814C6760078F2B0 /* Frameworks */,
+				E706C7FF2814C6760078F2B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E706C8032814C6760078F2B0 /* PBXTargetDependency */,
+			);
+			name = plazm_swiftUITests;
+			productName = plazm_swiftUITests;
+			productReference = E706C8012814C6760078F2B0 /* plazm_swiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E706C7DF2814C6760078F2B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					E706C7E62814C6760078F2B0 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					E706C7F62814C6760078F2B0 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = E706C7E62814C6760078F2B0;
+					};
+					E706C8002814C6760078F2B0 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = E706C7E62814C6760078F2B0;
+					};
+				};
+			};
+			buildConfigurationList = E706C7E22814C6760078F2B0 /* Build configuration list for PBXProject "plazm_swift" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E706C7DE2814C6760078F2B0;
+			productRefGroup = E706C7E82814C6760078F2B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E706C7E62814C6760078F2B0 /* plazm_swift */,
+				E706C7F62814C6760078F2B0 /* plazm_swiftTests */,
+				E706C8002814C6760078F2B0 /* plazm_swiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E706C7E52814C6760078F2B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E706C7F22814C6760078F2B0 /* Preview Assets.xcassets in Resources */,
+				E706C7EF2814C6760078F2B0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E706C7F52814C6760078F2B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E706C7FF2814C6760078F2B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E706C7E32814C6760078F2B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E706C7ED2814C6760078F2B0 /* ContentView.swift in Sources */,
+				E706C7EB2814C6760078F2B0 /* plazm_swiftApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E706C7F32814C6760078F2B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E706C7FC2814C6760078F2B0 /* plazm_swiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E706C7FD2814C6760078F2B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E706C8062814C6760078F2B0 /* plazm_swiftUITests.swift in Sources */,
+				E706C8082814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E706C7F92814C6760078F2B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E706C7E62814C6760078F2B0 /* plazm_swift */;
+			targetProxy = E706C7F82814C6760078F2B0 /* PBXContainerItemProxy */;
+		};
+		E706C8032814C6760078F2B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E706C7E62814C6760078F2B0 /* plazm_swift */;
+			targetProxy = E706C8022814C6760078F2B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E706C8092814C6760078F2B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E706C80A2814C6760078F2B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E706C80C2814C6760078F2B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"plazm_swift/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "plazm.plazm-swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E706C80D2814C6760078F2B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"plazm_swift/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "plazm.plazm-swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E706C80F2814C6760078F2B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "plazm.plazm-swiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/plazm_swift.app/plazm_swift";
+			};
+			name = Debug;
+		};
+		E706C8102814C6760078F2B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "plazm.plazm-swiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/plazm_swift.app/plazm_swift";
+			};
+			name = Release;
+		};
+		E706C8122814C6760078F2B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "plazm.plazm-swiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = plazm_swift;
+			};
+			name = Debug;
+		};
+		E706C8132814C6760078F2B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "plazm.plazm-swiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = plazm_swift;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E706C7E22814C6760078F2B0 /* Build configuration list for PBXProject "plazm_swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E706C8092814C6760078F2B0 /* Debug */,
+				E706C80A2814C6760078F2B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E706C80B2814C6760078F2B0 /* Build configuration list for PBXNativeTarget "plazm_swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E706C80C2814C6760078F2B0 /* Debug */,
+				E706C80D2814C6760078F2B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E706C80E2814C6760078F2B0 /* Build configuration list for PBXNativeTarget "plazm_swiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E706C80F2814C6760078F2B0 /* Debug */,
+				E706C8102814C6760078F2B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E706C8112814C6760078F2B0 /* Build configuration list for PBXNativeTarget "plazm_swiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E706C8122814C6760078F2B0 /* Debug */,
+				E706C8132814C6760078F2B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E706C7DF2814C6760078F2B0 /* Project object */;
+}
