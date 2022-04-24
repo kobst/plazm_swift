@@ -17,6 +17,13 @@
 		E706C7FC2814C6760078F2B0 /* plazm_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C7FB2814C6760078F2B0 /* plazm_swiftTests.swift */; };
 		E706C8062814C6760078F2B0 /* plazm_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C8052814C6760078F2B0 /* plazm_swiftUITests.swift */; };
 		E706C8082814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C8072814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift */; };
+		E74906472814CAA8005D1C10 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = E74906462814CAA8005D1C10 /* Apollo */; };
+		E74906492814CAA8005D1C10 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = E74906482814CAA8005D1C10 /* ApolloWebSocket */; };
+		E749064E2814CBCF005D1C10 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749064D2814CBCF005D1C10 /* DataSource.swift */; };
+		E74906502814CBE3005D1C10 /* DataSource.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E749064F2814CBE3005D1C10 /* DataSource.graphql */; };
+		E74906532814D250005D1C10 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = E74906522814D250005D1C10 /* schema.json */; };
+		E74906552814D48A005D1C10 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74906542814D48A005D1C10 /* API.swift */; };
+		E74906582814D51D005D1C10 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74906572814D51D005D1C10 /* ApolloClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +61,11 @@
 		E706C8012814C6760078F2B0 /* plazm_swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = plazm_swiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E706C8052814C6760078F2B0 /* plazm_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftUITests.swift; sourceTree = "<group>"; };
 		E706C8072814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E749064D2814CBCF005D1C10 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		E749064F2814CBE3005D1C10 /* DataSource.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DataSource.graphql; sourceTree = "<group>"; };
+		E74906522814D250005D1C10 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		E74906542814D48A005D1C10 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E74906572814D51D005D1C10 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
 		F4BC3025730F4E1ECEA3C2CA /* Pods-plazm_swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swiftTests.release.xcconfig"; path = "Target Support Files/Pods-plazm_swiftTests/Pods-plazm_swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5BB6F976C254BA6B58E0D6F /* Pods_plazm_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -64,6 +76,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA04B01FF28D5ED42C5FB09D /* Pods_plazm_swift.framework in Frameworks */,
+				E74906492814CAA8005D1C10 /* ApolloWebSocket in Frameworks */,
+				E74906472814CAA8005D1C10 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +110,6 @@
 				C1A3BA49013437E2C13CF152 /* Pods-plazm_swiftTests.debug.xcconfig */,
 				F4BC3025730F4E1ECEA3C2CA /* Pods-plazm_swiftTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -135,8 +148,13 @@
 		E706C7E92814C6760078F2B0 /* plazm_swift */ = {
 			isa = PBXGroup;
 			children = (
+				E74906562814D4FF005D1C10 /* Networking */,
+				E74906542814D48A005D1C10 /* API.swift */,
+				E74906522814D250005D1C10 /* schema.json */,
 				E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */,
 				E706C7EC2814C6760078F2B0 /* ContentView.swift */,
+				E749064D2814CBCF005D1C10 /* DataSource.swift */,
+				E749064F2814CBE3005D1C10 /* DataSource.graphql */,
 				E706C7EE2814C6760078F2B0 /* Assets.xcassets */,
 				E706C7F02814C6760078F2B0 /* Preview Content */,
 			);
@@ -168,6 +186,14 @@
 			path = plazm_swiftUITests;
 			sourceTree = "<group>";
 		};
+		E74906562814D4FF005D1C10 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E74906572814D51D005D1C10 /* ApolloClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +202,7 @@
 			buildConfigurationList = E706C80B2814C6760078F2B0 /* Build configuration list for PBXNativeTarget "plazm_swift" */;
 			buildPhases = (
 				22B915710F6A3A8E5FA86A87 /* [CP] Check Pods Manifest.lock */,
+				E749064C2814CB77005D1C10 /* Apollo */,
 				E706C7E32814C6760078F2B0 /* Sources */,
 				E706C7E42814C6760078F2B0 /* Frameworks */,
 				E706C7E52814C6760078F2B0 /* Resources */,
@@ -186,6 +213,10 @@
 			dependencies = (
 			);
 			name = plazm_swift;
+			packageProductDependencies = (
+				E74906462814CAA8005D1C10 /* Apollo */,
+				E74906482814CAA8005D1C10 /* ApolloWebSocket */,
+			);
 			productName = plazm_swift;
 			productReference = E706C7E72814C6760078F2B0 /* plazm_swift.app */;
 			productType = "com.apple.product-type.application";
@@ -261,6 +292,9 @@
 				Base,
 			);
 			mainGroup = E706C7DE2814C6760078F2B0;
+			packageReferences = (
+				E74906452814CAA8005D1C10 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = E706C7E82814C6760078F2B0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -277,7 +311,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E74906532814D250005D1C10 /* schema.json in Resources */,
 				E706C7F22814C6760078F2B0 /* Preview Assets.xcassets in Resources */,
+				E74906502814CBE3005D1C10 /* DataSource.graphql in Resources */,
 				E706C7EF2814C6760078F2B0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +435,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-plazm_swift/Pods-plazm_swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E749064C2814CB77005D1C10 /* Apollo */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Apollo;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -406,7 +460,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E749064E2814CBCF005D1C10 /* DataSource.swift in Sources */,
 				E706C7ED2814C6760078F2B0 /* ContentView.swift in Sources */,
+				E74906552814D48A005D1C10 /* API.swift in Sources */,
+				E74906582814D51D005D1C10 /* ApolloClient.swift in Sources */,
 				E706C7EB2814C6760078F2B0 /* plazm_swiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -732,6 +789,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E74906452814CAA8005D1C10 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.51.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E74906462814CAA8005D1C10 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E74906452814CAA8005D1C10 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		E74906482814CAA8005D1C10 /* ApolloWebSocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E74906452814CAA8005D1C10 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloWebSocket;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E706C7DF2814C6760078F2B0 /* Project object */;
 }

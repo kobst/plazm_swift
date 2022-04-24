@@ -14,4 +14,15 @@ struct plazm_swiftApp: App {
             ContentView()
         }
     }
+    
+    init(){
+        Network.shared.apollo.fetch(query: GetListsQuery()) { result in
+          switch result {
+          case .success(let graphQLResult):
+            print("Success! Result: \(graphQLResult)")
+          case .failure(let error):
+            print("Failure! Error: \(error)")
+          }
+        }
+    }
 }

@@ -1,0 +1,1244 @@
+query GetAllUser{
+          getAllUser {
+            message
+            success
+            user {
+                name
+                email
+                userSub
+                phoneNumber
+                photo
+                lockProfile
+                _id
+            }
+          }
+        }
+        
+query GetUser($userSub: String, $value: Int, $limit: Int){
+            getUser: getUser(input: {userSub:$userSub}) {
+              message
+              success
+              user {
+                  name
+                  email
+                  userSub
+                  phoneNumber
+                  photo
+                  lockProfile
+                  _id
+                  favorites
+                  listFollowed
+              }
+            }
+            userCreateAndFollowList: getUserSubCreatedAndFollowedLists(input: {userSub: $userSub, value: $value, limit: $limit}) {
+              message
+              success
+              totalLists
+              list {
+                _id
+                isPublic
+                ownerId
+                subscribers {
+                    name
+                    photo
+                    _id
+                }
+                name
+                description
+                type
+                media {
+                  image
+                }
+                createdAt
+                updatedAt
+              }
+            }
+          }
+          
+          
+query GetFavorites($id: ID!, $value: Int, $filters:homeSearchFilterInput!,$latitude: Float!,$longitude: Float!){
+            getFavorites(input: {id:$id, value:$value, filters:$filters, latitude:$latitude, longitude:$longitude}) {
+              message
+              success
+              totalPlaces
+              data {
+                _id
+                data
+                businessLocation {
+                  type
+                  coordinates
+                }
+                business {
+                  _id
+                  company_name
+                  favorites
+                  filter_tags
+                  hours_format {
+                    Start
+                    End
+                    StartDay
+                    EndDay
+                  }
+                  default_image_url
+                }
+                taggedUsers {
+                  _id
+                  name
+                }
+                taggedLists {
+                  _id
+                  name
+                }
+                ownerId {
+                  _id
+                  name
+                  photo
+                }
+                listId {
+                  _id
+                  name
+                  media {
+                    image
+                  }
+                }
+                title
+                description
+                type
+                eventSchedule {
+                  start_time
+                  end_time
+                }
+                user {
+                  name
+                  photo
+                }
+                likes
+                media
+                location {
+                  type
+                  coordinates
+                }
+                totalPosts {
+                  totalPosts
+                }
+                totalComments{
+                  totalCount
+                }
+                createdAt
+              }
+              }
+          }
+          
+query GetMyFeedData($id: ID!, $value: Int, $filters: homeSearchFilterInput!,  $longitude: Float!, $latitude: Float!, $search: String){
+            getMyFeedData (input: {id: $id, value:$value, filters:$filters,longitude:$longitude, latitude:$latitude, search: $search}){
+              message
+              success
+              totalPlaces
+              data {
+                _id
+                data
+                businessLocation {
+                  type
+                  coordinates
+                }
+                business {
+                  _id
+                  company_name
+                  favorites
+                  filter_tags
+                  hours_format {
+                    Start
+                    End
+                    StartDay
+                    EndDay
+                  }
+                  default_image_url
+                }
+                taggedUsers {
+                  _id
+                  name
+                }
+                taggedLists {
+                  _id
+                  name
+                }
+                ownerId {
+                  _id
+                  name
+                  photo
+                }
+                listId {
+                  _id
+                  name
+                  media {
+                    image
+                  }
+                }
+                title
+                description
+                type
+                eventSchedule {
+                  start_time
+                  end_time
+                }
+                recurring
+                user {
+                  name
+                  photo
+                }
+                likes
+                media
+                location {
+                  type
+                  coordinates
+                }
+                totalPosts {
+                  totalPosts
+                }
+                totalComments{
+                  totalCount
+                }
+                createdAt
+              }
+              }
+          }
+          
+          
+query GetUserProfileData($id: ID!){
+            getUserProfileData(input: {id:$id}) {
+              success
+              message
+              findTotalPostByUser
+              listCreatedByUser
+              user {
+                name
+                photo
+                listFollowed
+              }
+            }
+          }
+
+query GetPostImages($id: ID!){
+                getPostImages(input: {id:$id}) {
+                message
+                success
+                post
+              }
+            }
+            
+query SearchPlacesByUserId($id: ID!, $value: Int, $filters: filterInput, $ownerId:ID, $sideFilters: sideFilterInput, $search: String){
+            searchPlacesByUserId(input: {id:$id, value:$value, filters:$filters, ownerId:$ownerId, sideFilters: $sideFilters, search: $search}) {
+              message
+              success
+              totalPosts
+              place {
+                _id
+                userSub
+                hours_format {
+                    StartDay
+                    EndDay
+                    Start
+                    End
+                }
+                favorites
+                additional_media
+                filter_tags
+                company_name
+                location {
+                  type
+                  coordinates
+                }
+                address
+                telephone
+                handles {
+                    twitter
+                    facebook
+                    instagram
+                    linkedin
+                }
+                default_image_url
+            }
+            posts {
+                postId
+                totalLikes
+                totalComments
+                postDetails {
+                    _id
+                    data
+                    title
+                    eventSchedule {
+                        start_time
+                        end_time
+                    }
+                    businessLocation {
+                      type
+                      coordinates
+                    }
+                    list {
+                      _id
+                      name
+                      image
+                    }
+                    taggedUsers {
+                        list_ids
+                        _id
+                        name
+                        blurb
+                        photo
+                        createdAt
+                        updatedAt
+                    }
+                    taggedLists {
+                      _id
+                      name
+                      description
+                      items
+                      type
+                      photo
+                      account_id
+                      createdAt
+                    }
+                    ownerId {
+                      _id
+                      name
+                      email
+                      photo
+                    }
+                    likes {
+                      name
+                      _id
+                    }
+                    recurring
+                    media
+                    location {
+                        type
+                        coordinates
+                    }
+                    createdAt
+                    updatedAt
+                }
+                comments {
+                    userId {
+                      _id
+                      name
+                      }
+                    body
+                    replies {
+                        userId {
+                          _id
+                          name
+                          }
+                    body
+                    created_on
+                }
+                createdAt
+                updatedAt
+                }
+            }
+            }
+          }
+
+query SearchAllPlaces{
+            searchAllPlaces {
+              message
+              success
+              place {
+                _id
+                company_name
+                userSub
+            }
+            }
+          }
+
+
+query HomeSearch($search: String, $value:Int, $filters: homeSearchFilterInput!, $longitude: Float!, $latitude: Float!){
+            homeSearch(input: {search:$search, value:$value, filters:$filters, longitude:$longitude, latitude:$latitude}) {
+              message
+              success
+              totalPlaces
+              data {
+                  _id
+                  eventSchedule {
+                    start_time
+                    end_time
+                  }
+                  location {
+                    type
+                    coordinates
+                  }
+                  businessLocation {
+                    type
+                    coordinates
+                  }
+                  business {
+                    _id
+                    company_name
+                    favorites
+                    filter_tags
+                    hours_format {
+                      Start
+                      End
+                      StartDay
+                      EndDay
+                    }
+                    default_image_url
+                  }
+                  user {
+                    name
+                    photo
+                  }
+                  ownerId {
+                    _id
+                    name
+                    photo
+                  }
+                  title
+                  description
+                  type
+                  media
+                  likes
+                  list {
+                    _id
+                    name
+                  }
+                  createdAt
+                  updatedAt
+                  data
+                  listId {
+                    _id
+                    name
+                  }
+                  taggedUsers {
+                    _id
+                    name
+                  }
+                  taggedLists {
+                    _id
+                    name
+                  }
+                  ownerId {
+                    name
+                  }
+                  totalComments {
+                    totalCount
+                  }
+                  hours_format {
+                    Start
+                    End
+                    StartDay
+                    EndDay
+                  }
+                  totalPosts {
+                    totalPosts
+                  }
+                  filter_tags
+                  company_name
+                  default_image_url
+                  status
+                  favorites
+                  
+                  itemId {
+                    _id
+                    data
+                    title
+                    description
+                    eventSchedule {
+                      start_time
+                      end_time
+                    }
+                    media
+                    taggedUsers {
+                      name
+                      photo
+                    }
+                    taggedLists {
+                      _id
+                      name
+                    }
+                    ownerId {
+                      photo
+                      name
+                    }
+                    likes
+                    createdAt
+                  }
+                  userId {
+                    name
+                    photo
+                  }
+                  body
+                }
+            }
+          }
+          
+query GetLists{
+                getLists {
+                message
+                success
+                list {
+                    _id
+                    name
+                    description
+                    type
+                    photo
+                    account_id
+                    items
+                    createdAt
+                    updatedAt
+                  }
+                }
+            }
+            
+
+query GetUserLists($id: ID!){
+            getUserLists(input: {id: $id}) {
+              message
+              success
+              totalLists
+              list {
+                  _id
+                  isPublic
+                  ownerId
+                  subscribers {
+                    name
+                    photo
+                    _id
+                  }
+                  name
+                  description
+                  type
+                  media {
+                    image
+                  }
+                  createdAt
+                  updatedAt
+                }
+              }
+          }
+          
+          
+query GetUserCreatedAndFollowedLists($id: ID!, $value: Int, $limit: Int){
+            getUserCreatedAndFollowedLists (input: {id: $id, value:$value, limit: $limit}){
+              message
+              success
+              totalLists
+              list {
+                  _id
+                  isPublic
+                  ownerId
+                  subscribers {
+                    _id
+                    name
+                    photo
+                    
+                  }
+                  name
+                  description
+                  type
+                  media {
+                    image
+                  }
+                  createdAt
+                  updatedAt
+                }
+              }
+          }
+          
+query GetListDetails($id: ID!, $value: Int){
+            getListDetails (input: {id: $id, value:$value}){
+              message
+              success
+              totalLists
+              listDetails {
+                _id
+                isPublic
+                name
+                description
+                ownerId {
+                  _id
+                  name
+                }
+                media {
+                  image
+                }
+                updatedAt
+              }
+              data {
+                _id
+                data
+                title
+                eventSchedule {
+                    start_time
+                    end_time
+                }
+                business {
+                  _id
+                  company_name
+                  favorites
+                  filter_tags
+                  default_image_url
+                  location {
+                    type
+                    coordinates
+                  }
+                  hours_format {
+                    StartDay
+                    EndDay
+                    Start
+                    End
+                  }
+                }
+                businessLocation {
+                  type
+                  coordinates
+                }
+                likes
+                taggedUsers {
+                  _id
+                  name
+                }
+                taggedLists {
+                  _id
+                  name
+                }
+                ownerId {
+                  _id
+                  name
+                  photo
+                }
+                listId {
+                  _id
+                  name
+                  media {
+                    image
+                  }
+                }
+                totalPosts {
+                  totalPosts
+                }
+                media
+                totalComments{
+                  totalCount
+                }
+                createdAt
+              }
+              }
+          }
+          
+query FetchMostTrendingLists($value: Int){
+            fetchMostTrendingLists(input: {value: $value}) {
+              message
+              success
+              totalLists
+              list {
+                _id
+                name
+                description
+                isPublic
+                media {
+                  image
+                }
+                ownerId {
+                  _id
+                  name
+                }
+                subscribers {
+                _id
+                name
+                photo
+                }
+                updatedAt
+                }
+              }
+          }
+          
+query FetchMostPopularLists($value: Int){
+            fetchMostPopularLists(input: {value: $value}) {
+              message
+              success
+              totalLists
+              list {
+                _id
+                name
+                description
+                isPublic
+                media {
+                  image
+                }
+                ownerId {
+                  _id
+                  name
+                }
+                subscribers {
+                  _id
+                  name
+                  photo
+                }
+                updatedAt
+              }
+            }
+          }
+          
+query ListSearch($value: Int, $search: String, $userId: String, $subscriberId: String){
+            listSearch(input: {value: $value, search: $search, userId: $userId, subscriberId: $subscriberId}) {
+              message
+              success
+              totalLists
+              list {
+                _id
+                name
+                description
+                isPublic
+                media {
+                  image
+                }
+                ownerId
+                subscribers {
+                  _id
+                  name
+                  photo
+                }
+                updatedAt
+              }
+            }
+          }
+          
+query GetEventsForTheDay($id: ID, $day: String, $date:Date){
+            getEventsForTheDay(input: {id:$id, day:$day, date:$date}) {
+            message
+            success
+            event {
+                _id
+                totalComments
+                likes {
+                  _id
+                  name
+                }
+                taggedUsers {
+                  _id
+                  name
+                }
+                taggedLists {
+                  _id
+                  name
+                }
+                eventSchedule {
+                    start_time
+                    end_time
+                }
+                location {
+                    type
+                    coordinates
+                }
+                user {
+                  _id
+                  name
+                  email
+                  phoneNumber
+                  photo
+                }
+                title
+                description
+                type
+                recurring
+                media
+                createdAt
+                updatedAt
+            }
+          }
+        }
+        
+query GetEventsForTheWeek($id: ID, $date:Date, $userId: ID){
+        getEventsForTheWeek(input: {id:$id, date:$date, userId:$userId}) {
+          message
+          success
+          event {
+              _id
+              totalComments
+              likes {
+                _id
+                name
+              }
+              taggedUsers {
+                _id
+                name
+              }
+              taggedLists {
+                _id
+                name
+              }
+              eventSchedule {
+                  start_time
+                  end_time
+              }
+              location {
+                  type
+                  coordinates
+              }
+              user {
+                _id
+              }
+              list {
+                _id
+                name
+                image
+              }
+              title
+              description
+              type
+              recurring
+              media
+              createdAt
+              updatedAt
+          }
+        }
+      }
+      
+query GetComment($id: ID!){
+                getComment(input: {id:$id}) {
+                message
+                success
+                post {
+                  totalReplies
+                  comment {
+                    _id
+                    itemId
+                    userId {
+                        _id
+                        name
+                        email
+                        phoneNumber
+                        userSub
+                        photo
+                        lockProfile
+                        }
+                      taggedUsers {
+                          _id
+                          name
+                          email
+                        }
+                      body
+                      likes {
+                        _id
+                        name
+                        email
+                        phoneNumber
+                        userSub
+                        photo
+                        lockProfile
+                      }
+                      replies {
+                      body
+                      created_on
+                      }
+                  createdAt
+                  updatedAt
+              }
+            }
+              }
+            }
+            
+
+query GetReplies($id: ID!){
+            getReplies(input: {id:$id}) {
+              message
+              success
+              postId
+              commentId
+              replies {
+                        userId {
+                          _id
+                          name
+                          photo
+                          }
+                          taggedUsers {
+                            _id
+                            name
+                            email
+                          }
+                    body
+                    created_on
+                }
+            }
+          }
+          
+mutation UpdateProfile($name:String, $email:String, $phoneNumber:String, $userSub:String, $photo:String, $lockProfile:Int){
+            updateProfile(input: { name:$name, email:$email, phoneNumber:$phoneNumber, userSub:$userSub, photo:$photo, lockProfile:$lockProfile}) {
+              message
+              success
+              user {
+                  name
+                  email
+                  phoneNumber
+                  userSub
+                  lockProfile
+                  photo
+              }
+            }
+          }
+          
+mutation GetSelectedUser($search:String){
+            getSelectedUser(input: { search: $search}) {
+              message
+              success
+              user {
+                  _id
+                  name
+                  email
+                  phoneNumber
+                  userSub
+                  lockProfile
+                  photo
+              }
+            }
+          }
+          
+mutation AddFavoriteBusiness($userId:ID!, $businessId:ID!){
+            addFavoriteBusiness(input: { userId: $userId, businessId: $businessId }) {
+              message
+              success
+              user {
+                userId
+                businessId
+              }
+            }
+          }
+          
+mutation RemoveFavoriteBusiness($userId:ID!, $businessId:ID!){
+            removeFavoriteBusiness(input: { userId: $userId, businessId: $businessId }) {
+              message
+              success
+              user {
+                userId
+                businessId
+              }
+            }
+          }
+          
+
+mutation CreatePost($business: ID, $data:String, $media:[String], $taggedUsers:[ID], $taggedLists: [ID], $ownerId: ID, $listId: ID){
+              createPost(input: {business:$business, data:$data, media:$media, taggedUsers:$taggedUsers, taggedLists:$taggedLists, ownerId:$ownerId, listId:$listId }) {
+              message
+              success
+              totalPosts
+              post {
+                _id
+                data
+                list {
+                  _id
+                  name
+                  image
+                }
+                business {
+                  _id
+                }
+              taggedUsers {
+                  list_ids
+                  _id
+                  name
+                  blurb
+                  photo
+                  createdAt
+                  updatedAt
+              }
+              taggedLists {
+                _id
+                name
+                description
+                items
+                type
+                photo
+                account_id
+                createdAt
+              }
+              ownerId {
+                  _id
+                  name
+                  email
+                  photo
+              }
+              likes
+              media
+              createdAt
+              updatedAt
+              }
+            }
+          }
+          
+mutation AddLikeToPost($id: ID!, $userId:ID!){
+            addLikeToPost(input: {id:$id, userId:$userId}) {
+              message
+              success
+              like {
+                name
+                email
+                userSub
+                phoneNumber
+                photo
+                lockProfile
+                _id
+              }
+            }
+          }
+          
+mutation DeletePost($id: ID!){
+            deletePost(input: {id:$id}) {
+              message
+              success
+            }
+          }
+          
+          
+mutation UpdatePost($business: ID, $data:String, $media:[String], $taggedUsers:[ID], $taggedLists: [ID], $ownerId: ID, $listId: ID, $_id: ID){
+            updatePost(input: {business:$business, data:$data, media:$media, taggedUsers:$taggedUsers, taggedLists:$taggedLists, ownerId:$ownerId, listId:$listId, _id:$_id }) {
+              message
+              success
+              post {
+                _id
+                data
+                taggedUsers {
+                  _id
+                  name
+                }
+                taggedLists {
+                  _id
+                  name
+                }
+                media
+                createdAt
+              }
+            }
+          }
+          
+mutation CreateList($name: String, $description:String, $media:[media], $ownerId: ID){
+                createList(input: {name:$name, description:$description, media:$media, ownerId:$ownerId}) {
+                message
+                success
+                list {
+                    _id
+                    name
+                    description
+                    ownerId
+                    posts
+                    likes
+                    subscribers
+                    media {
+                      image
+                      thumbnail
+                    }
+                  }
+              }
+            }
+            
+mutation addPostToList($listId: ID!, $postId:ID! ){
+            addPostToList(input: {listId:$listId, postId:$postId}) {
+              message
+              success
+              list {
+                  _id
+                  name
+                  description
+                  ownerId
+                  posts
+                  likes
+                  subscribers
+                  media {
+                    image
+                    thumbnail
+                  }
+                }
+            }
+          }
+          
+mutation addEventToList($listId: ID!, $eventId:ID! ){
+            addEventToList(input: {listId:$listId, eventId:$eventId}) {
+              message
+              success
+              list {
+                  _id
+                  name
+                  description
+                  ownerId
+                  posts
+                  likes
+                  subscribers
+                  media {
+                    image
+                    thumbnail
+                  }
+                }
+            }
+          }
+          
+mutation DeleteUserList($listId: ID!, $userId:ID!){
+              deleteUserList(input: {listId:$listId, userId:$userId}) {
+                message
+                success
+                list {
+                    _id
+                    name
+                    description
+                    ownerId {
+                      name
+                    }
+                    posts
+                    subscribers
+                    media {
+                      image
+                      thumbnail
+                    }
+                  }
+              }
+            }
+
+
+mutation SubscribeToAList($listId: ID!, $userId:ID!){
+              subscribeToAList(input: {listId:$listId, userId:$userId}) {
+                message
+                success
+              }
+            }
+            
+mutation UnSubscribeToAList($listId: ID!, $userId:ID!){
+              unSubscribeToAList(input: {listId:$listId, userId:$userId}) {
+                message
+                success
+              }
+            }
+            
+mutation deletePostFromAList($listId: ID!, $postId:ID! ){
+            deletePostFromAList(input: {listId:$listId, postId:$postId}) {
+              message
+              success
+              list {
+                  _id
+                  name
+                  description
+                  ownerId
+                  posts
+                  likes
+                  subscribers
+                  media {
+                    image
+                    thumbnail
+                  }
+                }
+            }
+          }
+          
+
+mutation AddLikeToEvents($id: ID!, $userId:ID!){
+                addLikeToEvents(input: {id:$id, userId:$userId}) {
+                message
+                success
+                like {
+                  name
+                  email
+                  userSub
+                  phoneNumber
+                  photo
+                  lockProfile
+                  _id
+                }
+              }
+            }
+            
+mutation AddEvent($title: String, $description:String, $user:ID, $business:ID,  $eventSchedule:eventScheduleInput, $recurring:[Int], $media:[String], $listId: ID, $taggedUsers: [ID], $taggedLists: [ID]){
+            addEvent(input: {title:$title, description:$description, user:$user, business:$business, eventSchedule:$eventSchedule, recurring: $recurring, media: $media, listId: $listId, taggedUsers: $taggedUsers, taggedLists: $taggedLists}) {
+            message
+            success
+            event {
+              _id
+              business {
+                _id
+                company_name
+              }
+              user {
+                _id
+                name
+                photo
+              }
+              title
+              description
+              eventSchedule {
+                start_time
+                end_time
+              }
+              recurring
+              media
+            }
+          }
+        }
+        
+mutation CreateComment($itemId:ID, $userId:ID, $body:String, $created_on:Date){
+                createComment(input: { itemId:$itemId, userId:$userId, body:$body, created_on:$created_on}) {
+                message
+                success
+                post {
+                    _id
+                    userId {
+                      _id
+                      list_ids
+                      name
+                      blurb
+                      photo
+                      createdAt
+                      updatedAt
+                      }
+                    itemId {
+                      _id
+                    }
+                    body
+                    replies {
+                        userId {
+                            _id
+                            list_ids
+                            name
+                            blurb
+                            photo
+                            createdAt
+                            updatedAt
+                            }
+                    body
+                    created_on
+                    }
+                    createdAt
+                    updatedAt
+                }
+              }
+            }
+            
+mutation CreateReply($_id:ID!, $userId:ID!, $body:String!){
+            createReply(input: { _id:$_id, userId:$userId, body:$body}) {
+              message
+              success
+              reply {
+                _id
+                userId {
+                  _id
+                  name
+                  photo
+                }
+                body
+                created_on
+              }
+            }
+          }
+
+mutation AddLikeToComment($id:ID!, $userId:ID!){
+            addLikeToComment(input: { id:$id, userId:$userId}) {
+              message
+              success
+              postId
+              commentId
+              like {
+                name
+                email
+                userSub
+                phoneNumber
+                photo
+                lockProfile
+                _id
+              }
+            }
+          }
