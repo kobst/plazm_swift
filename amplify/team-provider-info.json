@@ -1,0 +1,25 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-plazmswift-dev-222536-authRole",
+      "UnauthRoleArn": "arn:aws:iam::547054413317:role/amplify-plazmswift-dev-222536-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::547054413317:role/amplify-plazmswift-dev-222536-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-plazmswift-dev-222536-deployment",
+      "UnauthRoleName": "amplify-plazmswift-dev-222536-unauthRole",
+      "StackName": "amplify-plazmswift-dev-222536",
+      "StackId": "arn:aws:cloudformation:us-east-1:547054413317:stack/amplify-plazmswift-dev-222536/d3f48490-c375-11ec-917d-123049f5190d",
+      "AmplifyAppId": "dliac2c4uvfl6"
+    },
+    "categories": {
+      "auth": {
+        "plazmswift7f1a7923": {
+          "userPoolId": "us-east-1_W5dpJ0PhM",
+          "userPoolName": "metagon99fcca73_userpool_99fcca73-dev",
+          "webClientId": "7v7acardjlsrksegaim52bbqv4",
+          "nativeClientId": "6prpo3im9abbbd4ka93o4gg5ur"
+        }
+      }
+    }
+  }
+}

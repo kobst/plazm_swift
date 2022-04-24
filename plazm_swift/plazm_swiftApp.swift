@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Amplify
+import AmplifyPlugins
 
 @main
 struct plazm_swiftApp: App {
@@ -16,6 +18,9 @@ struct plazm_swiftApp: App {
     }
     
     init(){
+        configureAmplify()
+//        authSessionManager.getCurrentAuthUser()
+    
         Network.shared.apollo.fetch(query: GetListsQuery()) { result in
           switch result {
           case .success(let graphQLResult):
@@ -23,6 +28,21 @@ struct plazm_swiftApp: App {
           case .failure(let error):
             print("Failure! Error: \(error)")
           }
+        }
+        
+
+    }
+    
+    // Configure Amplify at start of the app
+        private func configureAmplify() {
+        do {
+            // Amplify.Logging.logLevel = .verbose
+            try Amplify.add(plugin: AWSCognitoAuthPlugin())
+            try Amplify.configure()
+            print("Amplify configured with auth plugin")
+
+        } catch {
+            print("Failed to initialize Amplify with \(error)")
         }
     }
 }

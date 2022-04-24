@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "plazmswift7f1a7923": {
+      "service": "Cognito",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

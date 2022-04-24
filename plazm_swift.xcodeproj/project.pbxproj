@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2B4E6171E46F7E4675899120 /* Pods_plazm_swift_plazm_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17CD139781ED91EDF410835 /* Pods_plazm_swift_plazm_swiftUITests.framework */; };
+		8CDCA36CB75D7E9428338E88 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 746D460ACD9568D730F39FDB /* awsconfiguration.json */; };
 		A83849FA60B49D44513B8AEF /* Pods_plazm_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568306CEDADEDF70180E8347 /* Pods_plazm_swiftTests.framework */; };
+		B2BDA4450BB38B94E1BFD55F /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = AFC60985075EDF44A5F1FCC9 /* amplifyconfiguration.json */; };
 		DA04B01FF28D5ED42C5FB09D /* Pods_plazm_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5BB6F976C254BA6B58E0D6F /* Pods_plazm_swift.framework */; };
 		E706C7EB2814C6760078F2B0 /* plazm_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */; };
 		E706C7ED2814C6760078F2B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C7EC2814C6760078F2B0 /* ContentView.swift */; };
@@ -24,6 +26,9 @@
 		E74906532814D250005D1C10 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = E74906522814D250005D1C10 /* schema.json */; };
 		E74906552814D48A005D1C10 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74906542814D48A005D1C10 /* API.swift */; };
 		E74906582814D51D005D1C10 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74906572814D51D005D1C10 /* ApolloClient.swift */; };
+		E749065B2814EE15005D1C10 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E74906592814EE15005D1C10 /* amplifyconfiguration.json */; };
+		E749065C2814EE15005D1C10 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E749065A2814EE15005D1C10 /* awsconfiguration.json */; };
+		E749065E2814EED9005D1C10 /* AuthSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749065D2814EED9005D1C10 /* AuthSessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +51,10 @@
 /* Begin PBXFileReference section */
 		15264768FC730512DC38ACA4 /* Pods-plazm_swift-plazm_swiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swift-plazm_swiftUITests.release.xcconfig"; path = "Target Support Files/Pods-plazm_swift-plazm_swiftUITests/Pods-plazm_swift-plazm_swiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		568306CEDADEDF70180E8347 /* Pods_plazm_swiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		746D460ACD9568D730F39FDB /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		833045E4A5A8F5484B40D187 /* Pods-plazm_swift-plazm_swiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swift-plazm_swiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-plazm_swift-plazm_swiftUITests/Pods-plazm_swift-plazm_swiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A17CD139781ED91EDF410835 /* Pods_plazm_swift_plazm_swiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swift_plazm_swiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFC60985075EDF44A5F1FCC9 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		C1A3BA49013437E2C13CF152 /* Pods-plazm_swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swiftTests.debug.xcconfig"; path = "Target Support Files/Pods-plazm_swiftTests/Pods-plazm_swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D6AD98C7FC6030D605FADE5D /* Pods-plazm_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swift.debug.xcconfig"; path = "Target Support Files/Pods-plazm_swift/Pods-plazm_swift.debug.xcconfig"; sourceTree = "<group>"; };
 		E63055A3FC6B3B5513F9C88D /* Pods-plazm_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swift.release.xcconfig"; path = "Target Support Files/Pods-plazm_swift/Pods-plazm_swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +73,9 @@
 		E74906522814D250005D1C10 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		E74906542814D48A005D1C10 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E74906572814D51D005D1C10 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
+		E74906592814EE15005D1C10 /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = amplifyconfiguration.json; path = ../../../Desktop/plazm_iOS/amplifyconfiguration.json; sourceTree = "<group>"; };
+		E749065A2814EE15005D1C10 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = awsconfiguration.json; path = ../../../Desktop/plazm_iOS/awsconfiguration.json; sourceTree = "<group>"; };
+		E749065D2814EED9005D1C10 /* AuthSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSessionManager.swift; sourceTree = "<group>"; };
 		F4BC3025730F4E1ECEA3C2CA /* Pods-plazm_swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swiftTests.release.xcconfig"; path = "Target Support Files/Pods-plazm_swiftTests/Pods-plazm_swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5BB6F976C254BA6B58E0D6F /* Pods_plazm_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		654A49480329A4ADF0FCF701 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				746D460ACD9568D730F39FDB /* awsconfiguration.json */,
+				AFC60985075EDF44A5F1FCC9 /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			sourceTree = "<group>";
+		};
 		95A4B5CFEDA5DEC66BAC7180 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +151,7 @@
 				E706C7E82814C6760078F2B0 /* Products */,
 				95A4B5CFEDA5DEC66BAC7180 /* Pods */,
 				DE5AE6DC9C2669BA7DADE965 /* Frameworks */,
+				654A49480329A4ADF0FCF701 /* AmplifyConfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +173,8 @@
 				E74906522814D250005D1C10 /* schema.json */,
 				E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */,
 				E706C7EC2814C6760078F2B0 /* ContentView.swift */,
+				E74906592814EE15005D1C10 /* amplifyconfiguration.json */,
+				E749065A2814EE15005D1C10 /* awsconfiguration.json */,
 				E749064D2814CBCF005D1C10 /* DataSource.swift */,
 				E749064F2814CBE3005D1C10 /* DataSource.graphql */,
 				E706C7EE2814C6760078F2B0 /* Assets.xcassets */,
@@ -189,6 +211,7 @@
 		E74906562814D4FF005D1C10 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E749065D2814EED9005D1C10 /* AuthSessionManager.swift */,
 				E74906572814D51D005D1C10 /* ApolloClient.swift */,
 			);
 			path = Networking;
@@ -311,10 +334,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E749065C2814EE15005D1C10 /* awsconfiguration.json in Resources */,
 				E74906532814D250005D1C10 /* schema.json in Resources */,
 				E706C7F22814C6760078F2B0 /* Preview Assets.xcassets in Resources */,
 				E74906502814CBE3005D1C10 /* DataSource.graphql in Resources */,
+				E749065B2814EE15005D1C10 /* amplifyconfiguration.json in Resources */,
 				E706C7EF2814C6760078F2B0 /* Assets.xcassets in Resources */,
+				8CDCA36CB75D7E9428338E88 /* awsconfiguration.json in Resources */,
+				B2BDA4450BB38B94E1BFD55F /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,9 +414,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-plazm_swift-plazm_swiftUITests/Pods-plazm_swift-plazm_swiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-plazm_swift-plazm_swiftUITests/Pods-plazm_swift-plazm_swiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -426,9 +457,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-plazm_swift/Pods-plazm_swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-plazm_swift/Pods-plazm_swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -462,6 +497,7 @@
 			files = (
 				E749064E2814CBCF005D1C10 /* DataSource.swift in Sources */,
 				E706C7ED2814C6760078F2B0 /* ContentView.swift in Sources */,
+				E749065E2814EED9005D1C10 /* AuthSessionManager.swift in Sources */,
 				E74906552814D48A005D1C10 /* API.swift in Sources */,
 				E74906582814D51D005D1C10 /* ApolloClient.swift in Sources */,
 				E706C7EB2814C6760078F2B0 /* plazm_swiftApp.swift in Sources */,
