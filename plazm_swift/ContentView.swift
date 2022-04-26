@@ -14,7 +14,7 @@ import Apollo
 struct ContentView: View {
     @EnvironmentObject var sessionManager: SessionManager
     
-    @StateObject var userProfile = UserProfile()
+    @StateObject var sessionProfile = SessionProfile()
     
     
     var body: some View {
@@ -22,24 +22,22 @@ struct ContentView: View {
             .padding()
             .onAppear(){
                 if let user_sub = sessionManager.authUserId {
-                    self.userProfile.getUser(auth_user_sub: user_sub)
+                    self.sessionProfile.getUser(auth_user_sub: user_sub)
                 }
-                self.userProfile.explore()
+                self.sessionProfile.explore()
             }
-        if let userSpecs = userProfile._user {
+        
+        if let userSpecs = sessionProfile._user {
             Text(userSpecs.email ?? "no email").padding()
-//            userSpecs.listFollowed?.forEach(_id => {
-//                Text(_id)
-//            })
+
         }
     
-        ForEach(userProfile.homeFeed) {
+        ForEach(sessionProfile.homeFeed) {
             Text($0.data ?? "no data")
         }
-//        List(userProfile.homeFeed) { _list in
-//            Text(_list.data ?? "no info")
-//          }
-//
+
+        
+        
     }
 }
 

@@ -19,7 +19,7 @@
 		E706C7FC2814C6760078F2B0 /* plazm_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C7FB2814C6760078F2B0 /* plazm_swiftTests.swift */; };
 		E706C8062814C6760078F2B0 /* plazm_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C8052814C6760078F2B0 /* plazm_swiftUITests.swift */; };
 		E706C8082814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706C8072814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift */; };
-		E72685742816368D0018EB59 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72685732816368D0018EB59 /* UserProfile.swift */; };
+		E72685742816368D0018EB59 /* SessionProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72685732816368D0018EB59 /* SessionProfile.swift */; };
 		E726857728172BBA0018EB59 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E726857628172BBA0018EB59 /* Post.swift */; };
 		E726857928172BC90018EB59 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E726857828172BC90018EB59 /* Event.swift */; };
 		E726857B28172BD70018EB59 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = E726857A28172BD70018EB59 /* List.swift */; };
@@ -78,7 +78,7 @@
 		E706C8012814C6760078F2B0 /* plazm_swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = plazm_swiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E706C8052814C6760078F2B0 /* plazm_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftUITests.swift; sourceTree = "<group>"; };
 		E706C8072814C6760078F2B0 /* plazm_swiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plazm_swiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E72685732816368D0018EB59 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		E72685732816368D0018EB59 /* SessionProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionProfile.swift; sourceTree = "<group>"; };
 		E726857628172BBA0018EB59 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E726857828172BC90018EB59 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E726857A28172BD70018EB59 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 		E72685802817320D0018EB59 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E72685732816368D0018EB59 /* UserProfile.swift */,
+				E72685732816368D0018EB59 /* SessionProfile.swift */,
 				E72685832817892A0018EB59 /* Extensions.swift */,
 			);
 			path = ViewModel;
@@ -560,7 +560,7 @@
 				E726858228174A4C0018EB59 /* Location.swift in Sources */,
 				E7BD60772815A64D00F851B3 /* MasterView.swift in Sources */,
 				E74906552814D48A005D1C10 /* API.swift in Sources */,
-				E72685742816368D0018EB59 /* UserProfile.swift in Sources */,
+				E72685742816368D0018EB59 /* SessionProfile.swift in Sources */,
 				E7BD607D2815A73C00F851B3 /* ConfirmationView.swift in Sources */,
 				E74906582814D51D005D1C10 /* ApolloClient.swift in Sources */,
 				E726857D28172BE50018EB59 /* Place.swift in Sources */,

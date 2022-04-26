@@ -10,7 +10,7 @@ import Apollo
 import Foundation
 
 
-class UserProfile: ObservableObject {
+class SessionProfile: ObservableObject {
     
     var user_sub: String? = ""
     
@@ -36,10 +36,10 @@ class UserProfile: ObservableObject {
                     self._user = _validUser
                     self.followedLists = _validUser.listFollowed ?? []
                     self.getHomeFeed(user_id: _validId)
+//                    self.getUserLists()
                 }
                     case .failure(let error):
                         print("Failure! Error: \(error)")
-//                        self.homeFeed = []
                     }
                 }
         
