@@ -16,12 +16,6 @@ struct ContentView: View {
     
     @StateObject var userProfile = UserProfile()
     
-//    let user: AuthUser
-    
-//    init(){
-//        let _userLocation = Coordinates(lat: 41.2, lng: 72.2)
-//        self.userProfile = UserProfile(_id: self.sessionManager.authUserId!, location: _userLocation)
-//    }
     
     var body: some View {
         Text("Hello, world!")
@@ -30,6 +24,7 @@ struct ContentView: View {
                 if let user_sub = sessionManager.authUserId {
                     self.userProfile.getUser(auth_user_sub: user_sub)
                 }
+                self.userProfile.explore()
             }
         if let userSpecs = userProfile._user {
             Text(userSpecs.email ?? "no email").padding()
@@ -38,7 +33,7 @@ struct ContentView: View {
 //            })
         }
     
-        ForEach(userProfile.homeFeed, id: \.self) {
+        ForEach(userProfile.homeFeed) {
             Text($0.data ?? "no data")
         }
 //        List(userProfile.homeFeed) { _list in
