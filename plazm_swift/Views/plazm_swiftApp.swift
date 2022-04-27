@@ -11,26 +11,21 @@ import AmplifyPlugins
 
 @main
 struct plazm_swiftApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+    
+    @ObservedObject var sessionManager = SessionManager()
     
     init(){
         configureAmplify()
-//        authSessionManager.getCurrentAuthUser()
-    
-        Network.shared.apollo.fetch(query: GetListsQuery()) { result in
-          switch result {
-          case .success(let graphQLResult):
-            print("Success! Result: \(graphQLResult)")
-          case .failure(let error):
-            print("Failure! Error: \(error)")
-          }
-        }
+        sessionManager.getCurrentAuthUser()
         
+    }
+    
+    var body: some Scene {
+        WindowGroup {
+            MasterView()
+                  .environmentObject(sessionManager)
 
+        }
     }
     
     // Configure Amplify at start of the app

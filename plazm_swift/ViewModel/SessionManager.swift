@@ -16,14 +16,19 @@ enum AuthState {
     case session(user:AuthUser)
 }
 
-final class AuthSessionManager: ObservableObject {
+final class SessionManager: ObservableObject {
 
     @Published var authState: AuthState = .login
+    @Published var authUserId: String?
+    
 
+    
     // Check if a current user is signed in
     func getCurrentAuthUser() {
         if let user = Amplify.Auth.getCurrentUser() {
+            authUserId = user.userId
             authState = .session(user: user)
+  
         } else {
             authState = .login
         }
