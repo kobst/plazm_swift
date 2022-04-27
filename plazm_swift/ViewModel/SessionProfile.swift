@@ -13,10 +13,10 @@ import Foundation
 class SessionProfile: ObservableObject {
     
     var user_sub: String? = ""
-    
-
+    @Published var test = "TEST"
     @Published var _filter = homeSearchFilterInput(closest: true, updated: false)
     @Published var _user: GetUserQuery.Data.GetUser.User? = nil
+    @Published var email: String = ""
     @Published var followedLists: [GraphQLID?] = []
     @Published var createdLists: [GraphQLID?] = []
     @Published var homeFeed: [GetMyFeedDataQuery.Data.GetMyFeedDatum.Datum] = []
@@ -27,14 +27,20 @@ class SessionProfile: ObservableObject {
     
     func getUser(auth_user_sub: GraphQLID) {
         user_sub = auth_user_sub
+        print("Getting User" + auth_user_sub)
         Network.shared.apollo.fetch(query: GetUserQuery(userSub: auth_user_sub, value: 0, limit: 15)) { result in
             switch result {
                     case .success(let graphQLResult):
                         print("Success get user! Result: ")
                 
                 if let _validUser = graphQLResult.data?.getUser.user, let _validId = _validUser._id {
-                    self._user = _validUser
-                    self.followedLists = _validUser.listFollowed ?? []
+                    DispatchQueue.main.async {
+                        print(_validUser.email ?? "no email")// << here !!
+                        self._user = _validUser
+                        self.email = _validUser.email ?? ""
+                        self.followedLists = _validUser.listFollowed ?? []
+                    }
+
                     self.getHomeFeed(user_id: _validId)
 //                    self.getUserLists()
                 }
@@ -52,7 +58,7 @@ class SessionProfile: ObservableObject {
                     case .success(let graphQLResult):
                         print("Success! Result: HomeFeed")
                 if let items = graphQLResult.data?.getMyFeedData.data?.compactMap({$0}){
-                    self.homeFeed = items
+                    DispatchQueue.main.async {self.homeFeed = items}
                 }
                     case .failure(let error):
                         print("Failure! Error: \(error)")
@@ -65,9 +71,9 @@ class SessionProfile: ObservableObject {
         Network.shared.apollo.fetch(query: HomeSearchQuery(search: searchTerms, value: 20, filters: _filter, longitude: location.lng, latitude: location.lat)) {result in
             switch result {
             case .success(let graphQLResult):
-                print("Success! Result: HomeFeed")
+                print("Success! Result: Explore")
                 if let items = graphQLResult.data?.homeSearch.data?.compactMap({$0}){
-                    print(items)
+                    DispatchQueue.main.async {self.exploreFeed = items}
                 }
             case .failure(let error):
                 print("Failure! Error: \(error)")

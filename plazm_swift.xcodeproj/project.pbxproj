@@ -27,6 +27,7 @@
 		E726857F28172BFC0018EB59 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E726857E28172BFC0018EB59 /* User.swift */; };
 		E726858228174A4C0018EB59 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E726858128174A4C0018EB59 /* Location.swift */; };
 		E72685842817892A0018EB59 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72685832817892A0018EB59 /* Extensions.swift */; };
+		E7268588281853300018EB59 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7268587281853300018EB59 /* SideMenu.swift */; };
 		E74906472814CAA8005D1C10 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = E74906462814CAA8005D1C10 /* Apollo */; };
 		E74906492814CAA8005D1C10 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = E74906482814CAA8005D1C10 /* ApolloWebSocket */; };
 		E749064E2814CBCF005D1C10 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749064D2814CBCF005D1C10 /* DataSource.swift */; };
@@ -86,6 +87,7 @@
 		E726857E28172BFC0018EB59 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E726858128174A4C0018EB59 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E72685832817892A0018EB59 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E7268587281853300018EB59 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		E749064D2814CBCF005D1C10 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		E749064F2814CBE3005D1C10 /* DataSource.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DataSource.graphql; sourceTree = "<group>"; };
 		E74906522814D250005D1C10 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
@@ -190,14 +192,13 @@
 		E706C7E92814C6760078F2B0 /* plazm_swift */ = {
 			isa = PBXGroup;
 			children = (
+				E7268585281852A40018EB59 /* Views */,
 				E72685802817320D0018EB59 /* ViewModel */,
 				E74906522814D250005D1C10 /* schema.json */,
 				E74906542814D48A005D1C10 /* API.swift */,
 				E726857528172BA20018EB59 /* Model */,
 				E7BD60752815A57300F851B3 /* Auth Session */,
 				E74906562814D4FF005D1C10 /* Networking */,
-				E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */,
-				E706C7EC2814C6760078F2B0 /* ContentView.swift */,
 				E74906592814EE15005D1C10 /* amplifyconfiguration.json */,
 				E749065A2814EE15005D1C10 /* awsconfiguration.json */,
 				E749064D2814CBCF005D1C10 /* DataSource.swift */,
@@ -249,10 +250,33 @@
 		E72685802817320D0018EB59 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E749065D2814EED9005D1C10 /* SessionManager.swift */,
 				E72685732816368D0018EB59 /* SessionProfile.swift */,
 				E72685832817892A0018EB59 /* Extensions.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E7268585281852A40018EB59 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7268586281852D20018EB59 /* SignIn */,
+				E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */,
+				E706C7EC2814C6760078F2B0 /* ContentView.swift */,
+				E7268587281853300018EB59 /* SideMenu.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E7268586281852D20018EB59 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				E7BD60762815A64D00F851B3 /* MasterView.swift */,
+				E7BD607C2815A73C00F851B3 /* ConfirmationView.swift */,
+				E7BD60782815A69B00F851B3 /* SignInView.swift */,
+				E7BD607A2815A6E700F851B3 /* SignUpView.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 		E74906562814D4FF005D1C10 /* Networking */ = {
@@ -266,11 +290,6 @@
 		E7BD60752815A57300F851B3 /* Auth Session */ = {
 			isa = PBXGroup;
 			children = (
-				E749065D2814EED9005D1C10 /* SessionManager.swift */,
-				E7BD60762815A64D00F851B3 /* MasterView.swift */,
-				E7BD607C2815A73C00F851B3 /* ConfirmationView.swift */,
-				E7BD60782815A69B00F851B3 /* SignInView.swift */,
-				E7BD607A2815A6E700F851B3 /* SignUpView.swift */,
 			);
 			path = "Auth Session";
 			sourceTree = "<group>";
@@ -566,6 +585,7 @@
 				E726857D28172BE50018EB59 /* Place.swift in Sources */,
 				E726857B28172BD70018EB59 /* List.swift in Sources */,
 				E7BD60792815A69B00F851B3 /* SignInView.swift in Sources */,
+				E7268588281853300018EB59 /* SideMenu.swift in Sources */,
 				E7BD607B2815A6E700F851B3 /* SignUpView.swift in Sources */,
 				E706C7EB2814C6760078F2B0 /* plazm_swiftApp.swift in Sources */,
 				E726857928172BC90018EB59 /* Event.swift in Sources */,

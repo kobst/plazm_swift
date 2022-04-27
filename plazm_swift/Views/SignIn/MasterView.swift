@@ -30,7 +30,7 @@ struct MasterView: View {
 
         // If user is signIn, show normal view
         case .session(let user):
-            ContentView().environmentObject(sessionManager)
+            ContentView(authId: user.userId)
 
         }
     }
