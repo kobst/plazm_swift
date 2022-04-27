@@ -18,6 +18,7 @@ var lng: Double
 class SessionProfile: ObservableObject {
     
     var user_sub: String? = ""
+    var homeFeedOffset: Int = 20
     @Published var test = "TEST"
     @Published var _filter = homeSearchFilterInput(closest: true, updated: false)
     @Published var _user: GetUserQuery.Data.GetUser.User? = nil
@@ -62,13 +63,14 @@ class SessionProfile: ObservableObject {
     
     func getHomeFeed(user_id: GraphQLID){
    
-        Network.shared.apollo.fetch(query: GetMyFeedDataQuery(id: user_id, value: 20, filters: _filter, longitude: location.lng, latitude: location.lat, search: searchTerms)) {result in
+        Network.shared.apollo.fetch(query: GetMyFeedDataQuery(id: user_id, value: homeFeedOffset, filters: _filter, longitude: location.lng, latitude: location.lat, search: searchTerms)) {result in
             switch result {
                     case .success(let graphQLResult):
                         print("Success! Result: HomeFeed")
-                if let items = graphQLResult.data?.getMyFeedData.data?.compactMap({$0}){
-                    DispatchQueue.main.async {self.homeFeed = items}
-                }
+                        if let items = graphQLResult.data?.getMyFeedData.data?.compactMap({$0}){
+                            DispatchQueue.main.async {self.homeFeed = items}
+                        }
+                        self.homeFeedOffset = self.homeFeedOffset + 20
                     case .failure(let error):
                         print("Failure! Error: \(error)")
 //                        self.homeFeed = []
@@ -84,6 +86,9 @@ class SessionProfile: ObservableObject {
                     print("Success: Lists")
                 if let _lists = graphQLResult.data?.getUserCreatedAndFollowedLists.list?.compactMap({$0}) {
                     self.userLists = _lists
+                    for item in _lists {
+                        print(item.media?[0]?.image ?? "no image")
+                    }
                 }
                 case .failure(let error):
                     print(error)

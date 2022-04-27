@@ -10,11 +10,38 @@ import SwiftUI
 
 //https://swiftuirecipes.com/blog/side-menu-in-swiftui
 
-struct ListTabItem: Hashable {
-  let ListTitle: String
-  let ListId: String
-  let profileImage: Image
-  let action: () -> Void // Triggers when the item is tapped
+struct ListTabItem: Hashable, View {
+    let ListInfo: GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List
+    let ListTitle: String
+    let ListId: String
+    var ListImageUrl: String = ""
+    
+//  let profileImage: Image
+//  let action: () -> Void // Triggers when the item is tapped
+    
+    init(info: GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List ){
+        ListInfo = info
+        ListTitle = info.name ?? ""
+        ListId = info.id
+        if let url = info.media?[0]?.image {ListImageUrl = url}
+        
+        
+    }
+
+    var body: some View {
+        HStack {
+            AsyncImage(url: URL(string: ListImageUrl)) { image in
+                image.resizable()
+            } placeholder: {
+                Image("plazmLogo").resizable()
+            }.frame(width: 32, height: 32).padding()
+//            AsyncImage(url: URL(string: ListImageUrl))
+            
+            Text(ListTitle)
+                .foregroundColor(.gray)
+                .font(.system(size: 14))
+        }.frame(width: 150, height: 25, alignment: .leading)
+    }
 
   static func == (lhs: ListTabItem, rhs: ListTabItem) -> Bool {lhs.ListId == rhs.ListId}
 
@@ -47,7 +74,7 @@ struct SideMenuView: View {
         
         VStack(alignment: .leading) {
                     HStack {
-                        Image("compass-white")
+                        Image("compassWhite")
                             .resizable()
                             .frame(width: 32.0, height: 32.0)
                             .foregroundColor(.gray)
@@ -58,7 +85,7 @@ struct SideMenuView: View {
                     }
                         .padding(.top, 100)
                     HStack {
-                        Image("home-white")
+                        Image("homeWhite")
                             .resizable()
                             .frame(width: 32.0, height: 32.0)
                             .foregroundColor(.gray)
@@ -68,7 +95,7 @@ struct SideMenuView: View {
                     }
                         .padding(.top, 30)
                     HStack {
-                        Image("grid-blue")
+                        Image("gridBlue")
                             .resizable()
                             .frame(width: 32.0, height: 32.0)
                             .foregroundColor(.gray)
@@ -81,14 +108,14 @@ struct SideMenuView: View {
                 }
         Spacer()
         
-      ForEach(self.items, id: \.self) { item in
-        Button(action: item.action) {
-           Text(item.ListTitle.uppercased())
-             .foregroundColor(.white)
-             .font(.system(size: 14))
-             .fontWeight(.semibold)
-         }.padding(.top, 30)
-       }
+//      ForEach(self.items, id: \.self) { item in
+//        Button(action: item.action) {
+//           Text(item.ListTitle.uppercased())
+//             .foregroundColor(.white)
+//             .font(.system(size: 14))
+//             .fontWeight(.semibold)
+//         }.padding(.top, 30)
+//       }
        Spacer()
      }.padding()
      .frame(maxWidth: .infinity, alignment: .leading)
@@ -100,51 +127,54 @@ struct SideMenuView: View {
 
 
 
-struct SideMenu: View {
-    var body: some View {
-        GeometryReader{ geometry in
-            VStack(alignment: .leading) {
-                        HStack {
-                            Image("compass-white")
-                                .foregroundColor(.gray)
-                                .imageScale(.small)
-                            Text("Explore")
-                                .foregroundColor(.gray)
-                                .font(.headline)
-                        }
-                            .padding(.top, 100)
-                        HStack {
-                            Image("home-white")
-                                .foregroundColor(.gray)
-                                .imageScale(.small)
-                            Text("Home")
-                                .foregroundColor(.gray)
-                                .font(.headline)
-                        }
-                            .padding(.top, 30)
-                        HStack {
-                            Image(systemName: "gear")
-                                .foregroundColor(.gray)
-                                .imageScale(.small)
-                            Text("Subscriptions")
-                                .foregroundColor(.gray)
-                                .font(.headline)
-                        }
-                            .padding(.top, 30)
-                            Spacer()
-                    }
-                    .padding()
-                    .frame(width: 100, height: geometry.size.height, alignment: .leading)
-                    .background(Color(red: 32/255, green: 32/255, blue: 32/255))
-                    .edgesIgnoringSafeArea(.all)
-        }
-        }
-
-}
 
 
-struct SideMeny_Previews: PreviewProvider {
-    static var previews: some View {
-        SideMenu()
-    }
-}
+//
+//struct SideMenu: View {
+//    var body: some View {
+//        GeometryReader{ geometry in
+//            VStack(alignment: .leading) {
+//                        HStack {
+//                            Image("compass-white")
+//                                .foregroundColor(.gray)
+//                                .imageScale(.small)
+//                            Text("Explore")
+//                                .foregroundColor(.gray)
+//                                .font(.headline)
+//                        }
+//                            .padding(.top, 100)
+//                        HStack {
+//                            Image("home-white")
+//                                .foregroundColor(.gray)
+//                                .imageScale(.small)
+//                            Text("Home")
+//                                .foregroundColor(.gray)
+//                                .font(.headline)
+//                        }
+//                            .padding(.top, 30)
+//                        HStack {
+//                            Image(systemName: "gear")
+//                                .foregroundColor(.gray)
+//                                .imageScale(.small)
+//                            Text("Subscriptions")
+//                                .foregroundColor(.gray)
+//                                .font(.headline)
+//                        }
+//                            .padding(.top, 30)
+//                            Spacer()
+//                    }
+//                    .padding()
+//                    .frame(width: 100, height: geometry.size.height, alignment: .leading)
+//                    .background(Color(red: 32/255, green: 32/255, blue: 32/255))
+//                    .edgesIgnoringSafeArea(.all)
+//        }
+//        }
+//
+//}
+//
+//
+//struct SideMeny_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SideMenu()
+//    }
+//}

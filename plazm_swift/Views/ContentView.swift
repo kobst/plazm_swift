@@ -23,6 +23,7 @@ struct ContentView: View {
         // why does gesture slide out not work?
         let drag = DragGesture().onEnded { event in
           // starts at left-hand side and is horizontal with a min length
+            print(event.location.x)
             print(event.translation)
           if event.location.x < 200 && abs(event.translation.height) < 50 && abs(event.translation.width) > 50 {
             withAnimation {
@@ -73,9 +74,12 @@ struct MainView: View {
                     }) {
                         Text("Show Menu")
                     }
-            ForEach(sessionProfile.userLists) {
-                Text($0.description ?? "no data")
+            ScrollView{
+                ForEach(sessionProfile.homeFeed) {
+                   PostView(post: $0)
+                }
             }
+
         }
     }
 }
