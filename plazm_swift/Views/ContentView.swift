@@ -20,7 +20,6 @@ struct ContentView: View {
     
 
     var body: some View {
-
         // why does gesture slide out not work?
         let drag = DragGesture().onEnded { event in
           // starts at left-hand side and is horizontal with a min length
@@ -74,9 +73,9 @@ struct MainView: View {
                     }) {
                         Text("Show Menu")
                     }
-//            ForEach(sessionProfile.homeFeed) {
-//                Text($0.data ?? "no data")
-//            }
+            ForEach(sessionProfile.userLists) {
+                Text($0.description ?? "no data")
+            }
         }
     }
 }

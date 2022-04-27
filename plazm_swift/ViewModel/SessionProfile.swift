@@ -9,6 +9,11 @@ import SwiftUI
 import Apollo
 import Foundation
 
+struct Coordinates {
+var lat: Double
+var lng: Double
+}
+
 
 class SessionProfile: ObservableObject {
     
@@ -21,6 +26,8 @@ class SessionProfile: ObservableObject {
     @Published var createdLists: [GraphQLID?] = []
     @Published var homeFeed: [GetMyFeedDataQuery.Data.GetMyFeedDatum.Datum] = []
     @Published var exploreFeed: [HomeSearchQuery.Data.HomeSearch.Datum] = []
+    @Published var userLists: [GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List] = []
+   
     @Published var location: Coordinates = Coordinates(lat: 40.7505335, lng: -73.9759307)
     @Published var searchTerms: String = ""
     
@@ -42,6 +49,8 @@ class SessionProfile: ObservableObject {
                     }
 
                     self.getHomeFeed(user_id: _validId)
+                    self.getLists(user_id: _validId)
+                    
 //                    self.getUserLists()
                 }
                     case .failure(let error):
@@ -65,6 +74,22 @@ class SessionProfile: ObservableObject {
 //                        self.homeFeed = []
                     }
                 }
+    }
+    
+    func getLists(user_id: GraphQLID) {
+        print("getting lists")
+        Network.shared.apollo.fetch(query: GetUserCreatedAndFollowedListsQuery(id: user_id, value: 1, limit: 15)) {result in
+            switch result {
+                case .success(let graphQLResult):
+                    print("Success: Lists")
+                if let _lists = graphQLResult.data?.getUserCreatedAndFollowedLists.list?.compactMap({$0}) {
+                    self.userLists = _lists
+                }
+                case .failure(let error):
+                    print(error)
+            }
+        }
+        
     }
     
     func explore(){

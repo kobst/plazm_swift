@@ -43,3 +43,21 @@ extension HomeSearchQuery.Data.HomeSearch.Datum: Identifiable {
     }
 }
 
+extension GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List: Equatable {
+        public static func == (lhs: GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List, rhs: GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List) -> Bool {
+            return lhs._id == rhs._id
+        }
+}
+
+extension GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List: Hashable {
+    public func hash(into hasher: inout Hasher){
+        hasher.combine(_id)
+    }
+}
+
+extension GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List: Identifiable {
+    public var id: String {
+        return _id!
+    }
+}
+
