@@ -18,7 +18,8 @@ var lng: Double
 class SessionProfile: ObservableObject {
     
     var user_sub: String? = ""
-    var homeFeedOffset: Int = 20
+    var homeFeedOffset: Int = 0
+    var listDetailOffset: Int = 0
     @Published var test = "TEST"
     @Published var _filter = homeSearchFilterInput(closest: true, updated: false)
     @Published var _user: GetUserQuery.Data.GetUser.User? = nil
@@ -27,6 +28,7 @@ class SessionProfile: ObservableObject {
     @Published var createdLists: [GraphQLID?] = []
     @Published var homeFeed: [GetMyFeedDataQuery.Data.GetMyFeedDatum.Datum] = []
     @Published var exploreFeed: [HomeSearchQuery.Data.HomeSearch.Datum] = []
+    @Published var detailFeed: [GetListDetailsQuery.Data.GetListDetail.Datum] = []
     @Published var userLists: [GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List] = []
    
     @Published var location: Coordinates = Coordinates(lat: 40.7505335, lng: -73.9759307)
@@ -86,9 +88,9 @@ class SessionProfile: ObservableObject {
                     print("Success: Lists")
                 if let _lists = graphQLResult.data?.getUserCreatedAndFollowedLists.list?.compactMap({$0}) {
                     self.userLists = _lists
-                    for item in _lists {
-                        print(item.media?[0]?.image ?? "no image")
-                    }
+//                    for item in _lists {
+//                        print(item.media?[0]?.image ?? "no image")
+//                    }
                 }
                 case .failure(let error):
                     print(error)
@@ -110,6 +112,23 @@ class SessionProfile: ObservableObject {
             }
         }
         
+    }
+    
+    func getListDetails(listId: GraphQLID){
+        print("getting list details" + listId)
+        Network.shared.apollo.fetch(query: GetListDetailsQuery(id: listId, value: listDetailOffset)) {result in
+                switch result {
+                case .success(let graphQLResult):
+                    print("Success! Result: List Detail")
+                    if let items = graphQLResult.data?.getListDetails.data?.compactMap({$0}){
+                        self.detailFeed = items
+                    }
+                case .failure(let error):
+                    print("Failure! Error: \(error)")
+                    self.detailFeed = []
+                }
+            
+        }
     }
     
 

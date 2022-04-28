@@ -41,7 +41,6 @@ struct ContentView: View {
                     SideMenuView(showMenu: self.$showMenu)
                         .frame(width: 150)
                         .transition(.move(edge: .leading))
-                        
                 }
             }.environmentObject(sessionProfile)}
             .onAppear(){
@@ -76,8 +75,11 @@ struct MainView: View {
                     }
             ScrollView{
                 ForEach(sessionProfile.homeFeed) {
-                   PostView(post: $0)
+                   ItemView(post: $0)
                 }
+//                ForEach(sessionProfile.userLists) {
+//                   ListTabItem(info: $0)
+//                }
             }
 
         }

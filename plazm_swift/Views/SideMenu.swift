@@ -7,42 +7,48 @@
 
 import Foundation
 import SwiftUI
+import Apollo
 
 //https://swiftuirecipes.com/blog/side-menu-in-swiftui
 
 struct ListTabItem: Hashable, View {
+    @EnvironmentObject var sessionProfile: SessionProfile
+    
     let ListInfo: GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List
     let ListTitle: String
     let ListId: String
     var ListImageUrl: String = ""
     
 //  let profileImage: Image
-//  let action: () -> Void // Triggers when the item is tapped
+//    let action: ((String) -> Void) // Triggers when the item is tapped
     
     init(info: GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List ){
         ListInfo = info
         ListTitle = info.name ?? ""
         ListId = info.id
         if let url = info.media?[0]?.image {ListImageUrl = url}
+//        action = sessionProfile.getListDetails(listId: info.id)
         
-        
+       
     }
 
     var body: some View {
+        Button(action: getDetails){
         HStack {
-            AsyncImage(url: URL(string: ListImageUrl)) { image in
-                image.resizable()
-            } placeholder: {
-                Image("plazmLogo").resizable()
-            }.frame(width: 32, height: 32).padding()
-//            AsyncImage(url: URL(string: ListImageUrl))
-            
+            ImageView(withURL: ListImageUrl).frame(width: 32, height: 32).clipShape(Circle()).padding()
             Text(ListTitle)
                 .foregroundColor(.gray)
                 .font(.system(size: 14))
         }.frame(width: 150, height: 25, alignment: .leading)
+        }
     }
 
+    
+    
+
+    private func getDetails() -> () {
+        return sessionProfile.getListDetails(listId: ListId)
+    }
   static func == (lhs: ListTabItem, rhs: ListTabItem) -> Bool {lhs.ListId == rhs.ListId}
 
   func hash(into hasher: inout Hasher) {
@@ -52,7 +58,8 @@ struct ListTabItem: Hashable, View {
 
 struct SideMenuView: View {
   @Binding var showMenu: Bool
-  var items: [ListTabItem] = []
+  @EnvironmentObject var sessionProfile: SessionProfile
+    
 
   var body: some View {
     VStack(alignment: .leading) {
@@ -71,8 +78,7 @@ struct SideMenuView: View {
         }
       }.padding(.top, 20)
       Divider().foregroundColor(.white)
-        
-        VStack(alignment: .leading) {
+    VStack(alignment: .leading) {
                     HStack {
                         Image("compassWhite")
                             .resizable()
@@ -105,17 +111,23 @@ struct SideMenuView: View {
                     }
                         .padding(.top, 30)
                       
-                }
+        }
         Spacer()
         
-//      ForEach(self.items, id: \.self) { item in
-//        Button(action: item.action) {
-//           Text(item.ListTitle.uppercased())
+        ForEach(sessionProfile.userLists) {
+            ListTabItem(info: $0).padding()
+        }
+                
+//      ForEach(sessionProfile.userLists) { item in
+//          Button(action: sessionProfile.getListDetails(listId: item.id) ) {
+//              Text(item.name ?? "")
 //             .foregroundColor(.white)
 //             .font(.system(size: 14))
 //             .fontWeight(.semibold)
 //         }.padding(.top, 30)
 //       }
+        
+        
        Spacer()
      }.padding()
      .frame(maxWidth: .infinity, alignment: .leading)
