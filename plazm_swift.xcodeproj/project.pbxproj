@@ -34,8 +34,11 @@
 		E7BD60792815A69B00F851B3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD60782815A69B00F851B3 /* SignInView.swift */; };
 		E7BD607B2815A6E700F851B3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD607A2815A6E700F851B3 /* SignUpView.swift */; };
 		E7BD607D2815A73C00F851B3 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD607C2815A73C00F851B3 /* ConfirmationView.swift */; };
-		E7EAA39B28197E8900B0C569 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA39A28197E8900B0C569 /* ItemView.swift */; };
+		E7EAA39B28197E8900B0C569 /* HomeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA39A28197E8900B0C569 /* HomeFeedView.swift */; };
 		E7EAA39D2819B5A100B0C569 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA39C2819B5A100B0C569 /* ImageHandler.swift */; };
+		E7EAA39F281B2DB000B0C569 /* ExploreFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA39E281B2DB000B0C569 /* ExploreFeedView.swift */; };
+		E7EAA3A1281B491100B0C569 /* ListExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA3A0281B491100B0C569 /* ListExplorerView.swift */; };
+		E7EAA3A3281B64D600B0C569 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,8 +93,11 @@
 		E7BD60782815A69B00F851B3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E7BD607A2815A6E700F851B3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E7BD607C2815A73C00F851B3 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
-		E7EAA39A28197E8900B0C569 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		E7EAA39A28197E8900B0C569 /* HomeFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedView.swift; sourceTree = "<group>"; };
 		E7EAA39C2819B5A100B0C569 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
+		E7EAA39E281B2DB000B0C569 /* ExploreFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreFeedView.swift; sourceTree = "<group>"; };
+		E7EAA3A0281B491100B0C569 /* ListExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExplorerView.swift; sourceTree = "<group>"; };
+		E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		F4BC3025730F4E1ECEA3C2CA /* Pods-plazm_swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swiftTests.release.xcconfig"; path = "Target Support Files/Pods-plazm_swiftTests/Pods-plazm_swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5BB6F976C254BA6B58E0D6F /* Pods_plazm_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -228,6 +234,7 @@
 		E72685802817320D0018EB59 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7EAA39C2819B5A100B0C569 /* ImageHandler.swift */,
 				E749065D2814EED9005D1C10 /* SessionManager.swift */,
 				E72685732816368D0018EB59 /* SessionProfile.swift */,
 				E72685832817892A0018EB59 /* Extensions.swift */,
@@ -242,8 +249,10 @@
 				E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */,
 				E706C7EC2814C6760078F2B0 /* ContentView.swift */,
 				E7268587281853300018EB59 /* SideMenu.swift */,
-				E7EAA39A28197E8900B0C569 /* ItemView.swift */,
-				E7EAA39C2819B5A100B0C569 /* ImageHandler.swift */,
+				E7EAA39A28197E8900B0C569 /* HomeFeedView.swift */,
+				E7EAA39E281B2DB000B0C569 /* ExploreFeedView.swift */,
+				E7EAA3A0281B491100B0C569 /* ListExplorerView.swift */,
+				E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -555,15 +564,18 @@
 				E706C7ED2814C6760078F2B0 /* ContentView.swift in Sources */,
 				E749065E2814EED9005D1C10 /* SessionManager.swift in Sources */,
 				E7BD60772815A64D00F851B3 /* MasterView.swift in Sources */,
-				E7EAA39B28197E8900B0C569 /* ItemView.swift in Sources */,
+				E7EAA39B28197E8900B0C569 /* HomeFeedView.swift in Sources */,
 				E74906552814D48A005D1C10 /* API.swift in Sources */,
 				E72685742816368D0018EB59 /* SessionProfile.swift in Sources */,
+				E7EAA3A1281B491100B0C569 /* ListExplorerView.swift in Sources */,
 				E7BD607D2815A73C00F851B3 /* ConfirmationView.swift in Sources */,
 				E74906582814D51D005D1C10 /* ApolloClient.swift in Sources */,
 				E7EAA39D2819B5A100B0C569 /* ImageHandler.swift in Sources */,
 				E7BD60792815A69B00F851B3 /* SignInView.swift in Sources */,
 				E7268588281853300018EB59 /* SideMenu.swift in Sources */,
 				E7BD607B2815A6E700F851B3 /* SignUpView.swift in Sources */,
+				E7EAA3A3281B64D600B0C569 /* ListDetailView.swift in Sources */,
+				E7EAA39F281B2DB000B0C569 /* ExploreFeedView.swift in Sources */,
 				E706C7EB2814C6760078F2B0 /* plazm_swiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

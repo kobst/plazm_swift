@@ -14,12 +14,20 @@ var lat: Double
 var lng: Double
 }
 
+enum FeedState: String {
+    case homeFeed="home"
+    case explore="explore"
+    case listDetail="list detail"
+    case listExplore="subscriptions"
+}
 
 class SessionProfile: ObservableObject {
     
     var user_sub: String? = ""
     var homeFeedOffset: Int = 0
     var listDetailOffset: Int = 0
+    var exploreFeedOffset: Int = 0
+    @Published var feedState: FeedState = .homeFeed
     @Published var test = "TEST"
     @Published var _filter = homeSearchFilterInput(closest: true, updated: false)
     @Published var _user: GetUserQuery.Data.GetUser.User? = nil
@@ -100,7 +108,7 @@ class SessionProfile: ObservableObject {
     }
     
     func explore(){
-        Network.shared.apollo.fetch(query: HomeSearchQuery(search: searchTerms, value: 20, filters: _filter, longitude: location.lng, latitude: location.lat)) {result in
+        Network.shared.apollo.fetch(query: HomeSearchQuery(search: searchTerms, value: exploreFeedOffset, filters: _filter, longitude: location.lng, latitude: location.lat)) {result in
             switch result {
             case .success(let graphQLResult):
                 print("Success! Result: Explore")
@@ -116,6 +124,7 @@ class SessionProfile: ObservableObject {
     
     func getListDetails(listId: GraphQLID){
         print("getting list details" + listId)
+        feedState = .listDetail
         Network.shared.apollo.fetch(query: GetListDetailsQuery(id: listId, value: listDetailOffset)) {result in
                 switch result {
                 case .success(let graphQLResult):
@@ -129,6 +138,11 @@ class SessionProfile: ObservableObject {
                 }
             
         }
+    }
+    
+    func toggleFeed(){
+        
+        
     }
     
 

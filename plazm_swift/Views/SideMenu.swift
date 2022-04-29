@@ -49,6 +49,7 @@ struct ListTabItem: Hashable, View {
     private func getDetails() -> () {
         return sessionProfile.getListDetails(listId: ListId)
     }
+    
   static func == (lhs: ListTabItem, rhs: ListTabItem) -> Bool {lhs.ListId == rhs.ListId}
 
   func hash(into hasher: inout Hasher) {
@@ -79,55 +80,20 @@ struct SideMenuView: View {
       }.padding(.top, 20)
       Divider().foregroundColor(.white)
     VStack(alignment: .leading) {
-                    HStack {
-                        Image("compassWhite")
-                            .resizable()
-                            .frame(width: 32.0, height: 32.0)
-                            .foregroundColor(.gray)
-//                            .imageScale(.small)
-                        Text("Explore")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 14))
-                    }
-                        .padding(.top, 100)
-                    HStack {
-                        Image("homeWhite")
-                            .resizable()
-                            .frame(width: 32.0, height: 32.0)
-                            .foregroundColor(.gray)
-                        Text("Home")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 14))
-                    }
-                        .padding(.top, 30)
-                    HStack {
-                        Image("gridBlue")
-                            .resizable()
-                            .frame(width: 32.0, height: 32.0)
-                            .foregroundColor(.gray)
-                        Text("Subscriptions")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 14))
-                    }
-                        .padding(.top, 30)
-                      
+        TabFeedItem(imageTitle: "safari", feedType: .explore).padding()
+        TabFeedItem(imageTitle: "house", feedType: .homeFeed).padding()
+        TabFeedItem(imageTitle: "list.bullet", feedType: .listExplore).padding()
         }
         Spacer()
-        
-        ForEach(sessionProfile.userLists) {
-            ListTabItem(info: $0).padding()
+        ScrollView{
+            LazyVStack{
+                ForEach(sessionProfile.userLists) {
+                    ListTabItem(info: $0).padding()
+                }
+            }
         }
+ 
                 
-//      ForEach(sessionProfile.userLists) { item in
-//          Button(action: sessionProfile.getListDetails(listId: item.id) ) {
-//              Text(item.name ?? "")
-//             .foregroundColor(.white)
-//             .font(.system(size: 14))
-//             .fontWeight(.semibold)
-//         }.padding(.top, 30)
-//       }
-        
-        
        Spacer()
      }.padding()
      .frame(maxWidth: .infinity, alignment: .leading)
@@ -137,56 +103,33 @@ struct SideMenuView: View {
 }
 
 
+struct TabFeedItem: View {
+    
+    @EnvironmentObject var sessionProfile: SessionProfile
+    var imageTitle: String
+    var feedType: FeedState
+    
+    var body: some View {
+        Button(action: toggleFeed){
+        HStack {
+            Image(systemName: imageTitle)
+                .frame(width: 20.0, height: 20.0)
+                .foregroundColor(.gray).padding()
+                         
+            Text(feedType.rawValue)
+                .foregroundColor(.gray)
+                .font(.system(size: 14))
+        }.frame(width: 150, height: 25, alignment: .leading)
+        }
+    }
+    
+    
+    
 
-
-
-
-//
-//struct SideMenu: View {
-//    var body: some View {
-//        GeometryReader{ geometry in
-//            VStack(alignment: .leading) {
-//                        HStack {
-//                            Image("compass-white")
-//                                .foregroundColor(.gray)
-//                                .imageScale(.small)
-//                            Text("Explore")
-//                                .foregroundColor(.gray)
-//                                .font(.headline)
-//                        }
-//                            .padding(.top, 100)
-//                        HStack {
-//                            Image("home-white")
-//                                .foregroundColor(.gray)
-//                                .imageScale(.small)
-//                            Text("Home")
-//                                .foregroundColor(.gray)
-//                                .font(.headline)
-//                        }
-//                            .padding(.top, 30)
-//                        HStack {
-//                            Image(systemName: "gear")
-//                                .foregroundColor(.gray)
-//                                .imageScale(.small)
-//                            Text("Subscriptions")
-//                                .foregroundColor(.gray)
-//                                .font(.headline)
-//                        }
-//                            .padding(.top, 30)
-//                            Spacer()
-//                    }
-//                    .padding()
-//                    .frame(width: 100, height: geometry.size.height, alignment: .leading)
-//                    .background(Color(red: 32/255, green: 32/255, blue: 32/255))
-//                    .edgesIgnoringSafeArea(.all)
-//        }
-//        }
-//
-//}
-//
-//
-//struct SideMeny_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SideMenu()
-//    }
-//}
+    
+    private func toggleFeed() -> () {
+        return sessionProfile.feedState = feedType
+    }
+    
+    
+}

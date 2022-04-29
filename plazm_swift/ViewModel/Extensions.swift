@@ -25,6 +25,25 @@ extension GetMyFeedDataQuery.Data.GetMyFeedDatum.Datum: Identifiable {
     }
 }
 
+extension GetListDetailsQuery.Data.GetListDetail.Datum: Equatable {
+        public static func == (lhs: GetListDetailsQuery.Data.GetListDetail.Datum, rhs: GetListDetailsQuery.Data.GetListDetail.Datum) -> Bool {
+            return lhs._id == rhs._id
+        }
+}
+
+extension GetListDetailsQuery.Data.GetListDetail.Datum: Hashable {
+    public func hash(into hasher: inout Hasher){
+        hasher.combine(_id)
+    }
+}
+
+extension GetListDetailsQuery.Data.GetListDetail.Datum: Identifiable {
+    public var id: String {
+        return _id!
+    }
+}
+
+
 extension HomeSearchQuery.Data.HomeSearch.Datum: Equatable {
         public static func == (lhs: HomeSearchQuery.Data.HomeSearch.Datum, rhs: HomeSearchQuery.Data.HomeSearch.Datum) -> Bool {
             return lhs._id == rhs._id

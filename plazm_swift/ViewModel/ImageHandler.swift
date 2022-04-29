@@ -114,3 +114,62 @@ class ImageLoader: ObservableObject {
         }
     }
 }
+
+
+
+//public protocol Shape : Animatable, View {
+//    func path(in rect: CGRect) -> Path
+//}
+
+
+struct HexagonShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        Path { path in
+            // 1
+            // let width: CGFloat = 200
+            // let height: CGFloat = 200
+            let width: CGFloat = rect.width
+            let height: CGFloat = rect.height
+            let w = 2 * rect.width
+            let h = (3).squareRoot() * rect.width
+            
+            path.move(
+                to: CGPoint(
+                    x: -0.25 * w,
+                    y: 0.5 * h)
+            )
+
+            path.addLine(
+                to: CGPoint(
+                    x: 0.25 * w,
+                    y: 0.5 * h)
+            )
+
+            path.addLine(
+                to: CGPoint(
+                    x: 0.5 * w,
+                    y: 0)
+            )
+            
+            path.addLine(
+                to: CGPoint(
+                    x: 0.25 * w,
+                    y: -0.5 * h)
+            )
+            
+            path.addLine(
+                to: CGPoint(
+                    x: -0.25 * w,
+                    y: -0.5 * h)
+            )
+            
+            path.addLine(
+                to: CGPoint(
+                    x: -0.5 * w,
+                    y: 0)
+            )
+
+            path.closeSubpath()
+        }
+    }
+}
