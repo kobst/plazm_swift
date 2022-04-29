@@ -11,6 +11,7 @@ import Apollo
 
 
 
+
 struct ContentView: View {
     
     @StateObject var sessionProfile = SessionProfile()
@@ -20,14 +21,10 @@ struct ContentView: View {
     
 
     var body: some View {
-
-        // why does gesture slide out not work?
+        // why does gesture slide out not work when pulling out?
         let drag = DragGesture().onEnded { event in
-          // starts at left-hand side and is horizontal with a min length
-            print(event.translation)
           if event.location.x < 200 && abs(event.translation.height) < 50 && abs(event.translation.width) > 50 {
             withAnimation {
-              // Open if the drag was left-to-right, close if it was right-to-left
               self.showMenu = event.translation.width > 0
             }
           }
@@ -41,7 +38,6 @@ struct ContentView: View {
                     SideMenuView(showMenu: self.$showMenu)
                         .frame(width: 150)
                         .transition(.move(edge: .leading))
-                        
                 }
             }.environmentObject(sessionProfile)}
             .onAppear(){
@@ -60,7 +56,8 @@ struct MainView: View {
         
     @EnvironmentObject var sessionProfile: SessionProfile
     @Binding var showMenu: Bool
-    
+ 
+
     var body: some View {
         
         VStack(alignment: .center){
@@ -74,9 +71,18 @@ struct MainView: View {
                     }) {
                         Text("Show Menu")
                     }
-//            ForEach(sessionProfile.homeFeed) {
-//                Text($0.data ?? "no data")
-//            }
+            
+            switch sessionProfile.feedState {
+                case .homeFeed:
+                    HomeFeed()
+                case .explore:
+                    ExploreFeedView()
+                case .listDetail:
+                    ListDetailView()
+                case .listExplore:
+                    ListExplorerView()
+            }
+
         }
     }
 }

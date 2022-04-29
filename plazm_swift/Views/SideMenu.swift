@@ -7,15 +7,49 @@
 
 import Foundation
 import SwiftUI
+import Apollo
 
 //https://swiftuirecipes.com/blog/side-menu-in-swiftui
 
-struct ListTabItem: Hashable {
-  let ListTitle: String
-  let ListId: String
-  let profileImage: Image
-  let action: () -> Void // Triggers when the item is tapped
+struct ListTabItem: Hashable, View {
+    @EnvironmentObject var sessionProfile: SessionProfile
+    
+    let ListInfo: GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List
+    let ListTitle: String
+    let ListId: String
+    var ListImageUrl: String = ""
+    
+//  let profileImage: Image
+//    let action: ((String) -> Void) // Triggers when the item is tapped
+    
+    init(info: GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List ){
+        ListInfo = info
+        ListTitle = info.name ?? ""
+        ListId = info.id
+        if let url = info.media?[0]?.image {ListImageUrl = url}
+//        action = sessionProfile.getListDetails(listId: info.id)
+        
+       
+    }
 
+    var body: some View {
+        Button(action: getDetails){
+        HStack {
+            ImageView(withURL: ListImageUrl).frame(width: 32, height: 32).clipShape(Circle()).padding()
+            Text(ListTitle)
+                .foregroundColor(.gray)
+                .font(.system(size: 14))
+        }.frame(width: 150, height: 25, alignment: .leading)
+        }
+    }
+
+    
+    
+
+    private func getDetails() -> () {
+        return sessionProfile.getListDetails(listId: ListId)
+    }
+    
   static func == (lhs: ListTabItem, rhs: ListTabItem) -> Bool {lhs.ListId == rhs.ListId}
 
   func hash(into hasher: inout Hasher) {
@@ -25,7 +59,8 @@ struct ListTabItem: Hashable {
 
 struct SideMenuView: View {
   @Binding var showMenu: Bool
-  var items: [ListTabItem] = []
+  @EnvironmentObject var sessionProfile: SessionProfile
+    
 
   var body: some View {
     VStack(alignment: .leading) {
@@ -44,51 +79,21 @@ struct SideMenuView: View {
         }
       }.padding(.top, 20)
       Divider().foregroundColor(.white)
-        
-        VStack(alignment: .leading) {
-                    HStack {
-                        Image("compass-white")
-                            .resizable()
-                            .frame(width: 32.0, height: 32.0)
-                            .foregroundColor(.gray)
-//                            .imageScale(.small)
-                        Text("Explore")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 14))
-                    }
-                        .padding(.top, 100)
-                    HStack {
-                        Image("home-white")
-                            .resizable()
-                            .frame(width: 32.0, height: 32.0)
-                            .foregroundColor(.gray)
-                        Text("Home")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 14))
-                    }
-                        .padding(.top, 30)
-                    HStack {
-                        Image("grid-blue")
-                            .resizable()
-                            .frame(width: 32.0, height: 32.0)
-                            .foregroundColor(.gray)
-                        Text("Subscriptions")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 14))
-                    }
-                        .padding(.top, 30)
-                      
-                }
+    VStack(alignment: .leading) {
+        TabFeedItem(imageTitle: "safari", feedType: .explore).padding()
+        TabFeedItem(imageTitle: "house", feedType: .homeFeed).padding()
+        TabFeedItem(imageTitle: "list.bullet", feedType: .listExplore).padding()
+        }
         Spacer()
-        
-      ForEach(self.items, id: \.self) { item in
-        Button(action: item.action) {
-           Text(item.ListTitle.uppercased())
-             .foregroundColor(.white)
-             .font(.system(size: 14))
-             .fontWeight(.semibold)
-         }.padding(.top, 30)
-       }
+        ScrollView{
+            LazyVStack{
+                ForEach(sessionProfile.userLists) {
+                    ListTabItem(info: $0).padding()
+                }
+            }
+        }
+ 
+                
        Spacer()
      }.padding()
      .frame(maxWidth: .infinity, alignment: .leading)
@@ -98,53 +103,33 @@ struct SideMenuView: View {
 }
 
 
-
-
-struct SideMenu: View {
+struct TabFeedItem: View {
+    
+    @EnvironmentObject var sessionProfile: SessionProfile
+    var imageTitle: String
+    var feedType: FeedState
+    
     var body: some View {
-        GeometryReader{ geometry in
-            VStack(alignment: .leading) {
-                        HStack {
-                            Image("compass-white")
-                                .foregroundColor(.gray)
-                                .imageScale(.small)
-                            Text("Explore")
-                                .foregroundColor(.gray)
-                                .font(.headline)
-                        }
-                            .padding(.top, 100)
-                        HStack {
-                            Image("home-white")
-                                .foregroundColor(.gray)
-                                .imageScale(.small)
-                            Text("Home")
-                                .foregroundColor(.gray)
-                                .font(.headline)
-                        }
-                            .padding(.top, 30)
-                        HStack {
-                            Image(systemName: "gear")
-                                .foregroundColor(.gray)
-                                .imageScale(.small)
-                            Text("Subscriptions")
-                                .foregroundColor(.gray)
-                                .font(.headline)
-                        }
-                            .padding(.top, 30)
-                            Spacer()
-                    }
-                    .padding()
-                    .frame(width: 100, height: geometry.size.height, alignment: .leading)
-                    .background(Color(red: 32/255, green: 32/255, blue: 32/255))
-                    .edgesIgnoringSafeArea(.all)
+        Button(action: toggleFeed){
+        HStack {
+            Image(systemName: imageTitle)
+                .frame(width: 20.0, height: 20.0)
+                .foregroundColor(.gray).padding()
+                         
+            Text(feedType.rawValue)
+                .foregroundColor(.gray)
+                .font(.system(size: 14))
+        }.frame(width: 150, height: 25, alignment: .leading)
         }
-        }
-
-}
-
-
-struct SideMeny_Previews: PreviewProvider {
-    static var previews: some View {
-        SideMenu()
     }
+    
+    
+    
+
+    
+    private func toggleFeed() -> () {
+        return sessionProfile.feedState = feedType
+    }
+    
+    
 }
