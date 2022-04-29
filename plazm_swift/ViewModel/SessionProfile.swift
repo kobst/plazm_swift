@@ -38,7 +38,8 @@ class SessionProfile: ObservableObject {
     @Published var exploreFeed: [HomeSearchQuery.Data.HomeSearch.Datum] = []
     @Published var detailFeed: [GetListDetailsQuery.Data.GetListDetail.Datum] = []
     @Published var userLists: [GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List] = []
-   
+    @Published var selectedPlace: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Place? = nil
+    @Published var selectedPlacePosts: [SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post] = []
     @Published var location: Coordinates = Coordinates(lat: 40.7505335, lng: -73.9759307)
     @Published var searchTerms: String = ""
     
@@ -132,6 +133,7 @@ class SessionProfile: ObservableObject {
                     if let items = graphQLResult.data?.getListDetails.data?.compactMap({$0}){
                         self.detailFeed = items
                     }
+                    
                 case .failure(let error):
                     print("Failure! Error: \(error)")
                     self.detailFeed = []
@@ -140,8 +142,27 @@ class SessionProfile: ObservableObject {
         }
     }
     
-    func toggleFeed(){
+ 
+    func getPlaceDetails(place_id: GraphQLID){
+        let _filters = filterInput(business: false, postsByMe: true, mySubscriptions: true, others: true)
+        let sideFilter = sideFilterInput(likes: false, recent: true)
         
+        Network.shared.apollo.fetch(query: SearchPlacesByUserIdQuery(id: place_id, value: 0, filters: _filters, ownerId: _user?._id, sideFilters: sideFilter, search: "")){result in
+            switch result {
+            case .success(let graphQLResult):
+                print("Success! Result: Place Received")
+                if let _place = graphQLResult.data?.searchPlacesByUserId.place?[0] {
+                    self.selectedPlace = _place
+                }
+                if let _posts = graphQLResult.data?.searchPlacesByUserId.posts?.compactMap({$0}) {
+                    self.selectedPlacePosts = _posts
+                }
+                
+            case .failure(let error):
+                print("Failure! Error: \(error)")
+            }
+        
+    }
         
     }
     

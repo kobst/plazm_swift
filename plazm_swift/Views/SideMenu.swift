@@ -61,39 +61,17 @@ struct SideMenuView: View {
   @Binding var showMenu: Bool
   @EnvironmentObject var sessionProfile: SessionProfile
     
-
   var body: some View {
     VStack(alignment: .leading) {
-      Button(action: {
-        withAnimation {
-          self.showMenu = false
-        }
-      }) {
-        HStack {
-          Image(systemName: "xmark")
-            .foregroundColor(.white)
-          Text("close menu")
-            .foregroundColor(.white)
-            .font(.system(size: 14))
-            .padding(.leading, 15.0)
-        }
-      }.padding(.top, 20)
-      Divider().foregroundColor(.white)
-    VStack(alignment: .leading) {
-        TabFeedItem(imageTitle: "safari", feedType: .explore).padding()
-        TabFeedItem(imageTitle: "house", feedType: .homeFeed).padding()
-        TabFeedItem(imageTitle: "list.bullet", feedType: .listExplore).padding()
+        MenuCloseButton(showMenu: self.$showMenu).padding(.top, 20)
+        Divider().foregroundColor(.white)
+        VStack(alignment: .leading) {
+            TabFeedItem(imageTitle: "safari", feedType: .explore).padding()
+            TabFeedItem(imageTitle: "house", feedType: .homeFeed).padding()
+            TabFeedItem(imageTitle: "list.bullet", feedType: .listExplore).padding()
         }
         Spacer()
-        ScrollView{
-            LazyVStack{
-                ForEach(sessionProfile.userLists) {
-                    ListTabItem(info: $0).padding()
-                }
-            }
-        }
- 
-                
+        ListTabMenu()
        Spacer()
      }.padding()
      .frame(maxWidth: .infinity, alignment: .leading)
@@ -102,6 +80,44 @@ struct SideMenuView: View {
   }
 }
 
+
+
+struct MenuCloseButton: View {
+    @Binding var showMenu: Bool
+    
+    var body: some View {
+        Button(action: {
+          withAnimation {
+            self.showMenu = false
+          }
+        }) {
+          HStack {
+            Image(systemName: "xmark")
+              .foregroundColor(.white)
+            Text("close menu")
+              .foregroundColor(.white)
+              .font(.system(size: 14))
+              .padding(.leading, 15.0)
+          }
+        }
+    }
+    
+}
+
+
+struct ListTabMenu: View {
+    @EnvironmentObject var sessionProfile: SessionProfile
+    
+    var body: some View {
+        ScrollView{
+            LazyVStack{
+                ForEach(sessionProfile.userLists) {
+                    ListTabItem(info: $0).padding()
+                }
+            }
+        }
+    }
+}
 
 struct TabFeedItem: View {
     
@@ -122,10 +138,6 @@ struct TabFeedItem: View {
         }.frame(width: 150, height: 25, alignment: .leading)
         }
     }
-    
-    
-    
-
     
     private func toggleFeed() -> () {
         return sessionProfile.feedState = feedType
