@@ -39,6 +39,7 @@
 		E7EAA39F281B2DB000B0C569 /* ExploreFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA39E281B2DB000B0C569 /* ExploreFeedView.swift */; };
 		E7EAA3A1281B491100B0C569 /* ListExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA3A0281B491100B0C569 /* ListExplorerView.swift */; };
 		E7EAA3A3281B64D600B0C569 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */; };
+		E7EAA3A5281C843000B0C569 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA3A4281C842F00B0C569 /* PlaceDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		E7EAA39E281B2DB000B0C569 /* ExploreFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreFeedView.swift; sourceTree = "<group>"; };
 		E7EAA3A0281B491100B0C569 /* ListExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExplorerView.swift; sourceTree = "<group>"; };
 		E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
+		E7EAA3A4281C842F00B0C569 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		F4BC3025730F4E1ECEA3C2CA /* Pods-plazm_swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swiftTests.release.xcconfig"; path = "Target Support Files/Pods-plazm_swiftTests/Pods-plazm_swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5BB6F976C254BA6B58E0D6F /* Pods_plazm_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -253,6 +255,7 @@
 				E7EAA39E281B2DB000B0C569 /* ExploreFeedView.swift */,
 				E7EAA3A0281B491100B0C569 /* ListExplorerView.swift */,
 				E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */,
+				E7EAA3A4281C842F00B0C569 /* PlaceDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				E749065E2814EED9005D1C10 /* SessionManager.swift in Sources */,
 				E7BD60772815A64D00F851B3 /* MasterView.swift in Sources */,
 				E7EAA39B28197E8900B0C569 /* HomeFeedView.swift in Sources */,
+				E7EAA3A5281C843000B0C569 /* PlaceDetailView.swift in Sources */,
 				E74906552814D48A005D1C10 /* API.swift in Sources */,
 				E72685742816368D0018EB59 /* SessionProfile.swift in Sources */,
 				E7EAA3A1281B491100B0C569 /* ListExplorerView.swift in Sources */,

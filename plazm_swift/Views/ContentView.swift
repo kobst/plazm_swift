@@ -32,13 +32,12 @@ struct ContentView: View {
         
         return GeometryReader { geometry in
             ZStack(alignment: .leading) {
-                MainView(showMenu: self.$showMenu)
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                if self.showMenu {
-                    SideMenuView(showMenu: self.$showMenu)
-                        .frame(width: 150)
-                        .transition(.move(edge: .leading))
-                }
+                    MainView(showMenu: self.$showMenu).frame(width: geometry.size.width, height: geometry.size.height)
+                    if self.showMenu {
+                        SideMenuView(showMenu: self.$showMenu)
+                            .frame(width: 150)
+                            .transition(.move(edge: .leading))
+                    }
             }.environmentObject(sessionProfile)}
             .onAppear(){
                 self.sessionProfile.getUser(auth_user_sub: authId)
@@ -74,13 +73,23 @@ struct MainView: View {
             
             switch sessionProfile.feedState {
                 case .homeFeed:
-                    HomeFeed()
+                    withAnimation{
+                            HomeFeed().transition(.scale)
+//                    .animation(.easeInOut(duration: 2))
+                    }
                 case .explore:
-                    ExploreFeedView()
+//                    withAnimation(.easeInOut(duration: 1.0)){
+                withAnimation{
+                        ExploreFeedView().transition(.scale)
+                    }
                 case .listDetail:
-                    ListDetailView()
+                    withAnimation{
+                        ListDetailView().transition(.scale)
+                    }
                 case .listExplore:
-                    ListExplorerView()
+                    withAnimation {
+                        ListExplorerView().transition(.scale)
+                    }
             }
 
         }
