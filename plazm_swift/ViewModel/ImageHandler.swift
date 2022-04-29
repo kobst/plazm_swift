@@ -125,11 +125,7 @@ class ImageLoader: ObservableObject {
 struct HexagonShape: Shape {
     func path(in rect: CGRect) -> Path {
         Path { path in
-            // 1
-            // let width: CGFloat = 200
-            // let height: CGFloat = 200
-            let width: CGFloat = rect.width
-            let height: CGFloat = rect.height
+   
             let w = 2 * rect.width
             let h = (3).squareRoot() * rect.width
             
@@ -171,5 +167,52 @@ struct HexagonShape: Shape {
 
             path.closeSubpath()
         }
+    }
+}
+
+
+struct HexShapeFlat: Shape {
+    
+ 
+    func path(in rect: CGRect) -> Path {
+        Path { path in
+   
+            // pass in width and height w relevant proportions...
+            
+            let w = rect.width
+            let h = rect.height
+//            let w = 2 * size
+//            let h = (3).squareRoot() * size
+            
+            path.move(to: CGPoint(x: 0.25 * w, y: 0))
+
+            path.addLine(to: CGPoint(x: 0.75 * w, y: 0))
+            
+            path.addLine(to: CGPoint(x: w, y: 0.5 * h))
+            
+            path.addLine(to: CGPoint(x: 0.75 * w, y: h))
+
+            path.addLine(to: CGPoint(x: 0.25 * w, y: h))
+            
+            path.addLine(to: CGPoint(x: 0, y: 0.5 * h))
+
+            path.closeSubpath()
+        }
+    }
+}
+
+
+struct HexModifier: ViewModifier {
+    
+    var size: CGFloat
+
+    func body(content: Content) -> some View {
+            content.frame(width: 2 * size, height: (3).squareRoot() * size)
+    }
+}
+
+extension View {
+    func hexagonal(with size: CGFloat) -> some View {
+        modifier(HexModifier(size: size))
     }
 }

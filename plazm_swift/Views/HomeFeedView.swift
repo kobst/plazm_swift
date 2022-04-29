@@ -18,11 +18,11 @@ struct ItemView: View {
 
     var body: some View {
         VStack {
-            HStack{
+            HStack(spacing: 10){
                 ImageView(withURL: post.listId?[0]?.media?[0]?.image).frame(width: 32, height: 32, alignment: .center).clipShape(Circle())
                 Text(post.listId?[0]?.name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .leading)
                 Text(post.business?[0]?.companyName ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .trailing)
-                ImageView(withURL: post.business?[0]?.defaultImageUrl).frame(width: 32, height: 32, alignment: .center).clipShape(HexagonShape())
+                ImageView(withURL:post.business?[0]?.defaultImageUrl).hexagonal(with: 32.0).clipShape(HexShapeFlat())
             }.frame(width: 300, height: 100, alignment: .leading)
 
             Text(post.data ?? "")
