@@ -33,10 +33,13 @@ struct PlaceView: View {
         ZStack(alignment: .topTrailing) {
             Rectangle().foregroundColor(.black).frame(width: 300, height: 170)
 //            ImageView(withURL: place.defaultImageUrl).frame(width: 250, height: 150, alignment: .center)
-            HStack{
-                Text(place.companyName ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.red).frame(width: 150, height: 100)
-                ImageView(withURL: place.defaultImageUrl).hexagonal(with: 32.0).clipShape(HexShapeFlat())
-            }.frame(width: 100, height: 100, alignment: .topTrailing).foregroundColor(.green)
+            NavigationLink(destination: Text(place.companyName ?? "")){
+                HStack{
+                    Text(place.companyName ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.red).frame(width: 150, height: 100)
+                    ImageView(withURL: place.defaultImageUrl).hexagonal(with: 32.0).clipShape(HexShapeFlat())
+                }.frame(width: 100, height: 100, alignment: .topTrailing).foregroundColor(.green)
+            }
+
 
         }.frame(width: 300, height: 170, alignment: .center)
         .onAppear(){

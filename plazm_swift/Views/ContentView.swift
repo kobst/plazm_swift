@@ -18,10 +18,11 @@ struct ContentView: View {
     
     @State var showMenu = false
     @State var authId: String
-    
+
 
     var body: some View {
         // why does gesture slide out not work when pulling out?
+        
         let drag = DragGesture().onEnded { event in
           if event.location.x < 200 && abs(event.translation.height) < 50 && abs(event.translation.width) > 50 {
             withAnimation {
@@ -32,12 +33,14 @@ struct ContentView: View {
         
         return GeometryReader { geometry in
             ZStack(alignment: .leading) {
-                    MainView(showMenu: self.$showMenu).frame(width: geometry.size.width, height: geometry.size.height)
+        
+                    MainView(showMenu: self.$showMenu).frame(maxWidth: .infinity, maxHeight: .infinity)
                     if self.showMenu {
                         SideMenuView(showMenu: self.$showMenu)
                             .frame(width: 150)
                             .transition(.move(edge: .leading))
-                    }
+                        }
+
             }.environmentObject(sessionProfile)}
             .onAppear(){
                 self.sessionProfile.getUser(auth_user_sub: authId)
@@ -58,41 +61,37 @@ struct MainView: View {
  
 
     var body: some View {
-        
-        VStack(alignment: .center){
-            Text(sessionProfile._user?.email ?? "no email")
-                .padding()
-            
-            Button(action: {
-                        withAnimation {
-                           self.showMenu = true
+        NavigationView{
+            VStack(alignment: .center){
+                Text(sessionProfile._user?.email ?? "no email")
+                    .padding()
+                
+                Button(action: {
+                            withAnimation {
+                               self.showMenu = true
+                            }
+                        }) {
+                            Text("Show Menu")
                         }
-                    }) {
-                        Text("Show Menu")
-                    }
+                
+                switch sessionProfile.feedState {
+                    case .homeFeed:
+    //                    HomeFeed().transition(.slide).animation(.easeInOut(duration: 1))
+                        HomeFeed()
+                    case .explore:
+    //                    withAnimation(.easeInOut(duration: 1.0)){
+                            ExploreFeedView()
+    //                    }
+                    case .listDetail:
+                            ListDetailView()
+                    case .listExplore:
+                            ListExplorerView()
             
-            switch sessionProfile.feedState {
-                case .homeFeed:
-                    withAnimation{
-                            HomeFeed().transition(.scale)
-//                    .animation(.easeInOut(duration: 2))
-                    }
-                case .explore:
-//                    withAnimation(.easeInOut(duration: 1.0)){
-                withAnimation{
-                        ExploreFeedView().transition(.scale)
-                    }
-                case .listDetail:
-                    withAnimation{
-                        ListDetailView().transition(.scale)
-                    }
-                case .listExplore:
-                    withAnimation {
-                        ListExplorerView().transition(.scale)
-                    }
-            }
+                }
 
+            }
         }
+
     }
 }
 
