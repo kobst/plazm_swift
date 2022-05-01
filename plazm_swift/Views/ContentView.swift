@@ -63,9 +63,6 @@ struct MainView: View {
     var body: some View {
         NavigationView{
             VStack(alignment: .center){
-                Text(sessionProfile._user?.email ?? "no email")
-                    .padding()
-                
                 Button(action: {
                             withAnimation {
                                self.showMenu = true
@@ -74,14 +71,13 @@ struct MainView: View {
                             Text("Show Menu")
                         }
                 
+                
+                // how to add appropriate animation for switching feeds....
                 switch sessionProfile.feedState {
                     case .homeFeed:
-    //                    HomeFeed().transition(.slide).animation(.easeInOut(duration: 1))
                         HomeFeed()
                     case .explore:
-    //                    withAnimation(.easeInOut(duration: 1.0)){
                             ExploreFeedView()
-    //                    }
                     case .listDetail:
                             ListDetailView()
                     case .listExplore:

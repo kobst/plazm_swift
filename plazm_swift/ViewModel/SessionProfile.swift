@@ -156,6 +156,9 @@ class SessionProfile: ObservableObject {
                 }
                 if let _posts = graphQLResult.data?.searchPlacesByUserId.posts?.compactMap({$0}) {
                     self.selectedPlacePosts = _posts
+//                    for post in _posts {
+//                        print(post.postI)
+//                    }
                 }
                 
             case .failure(let error):

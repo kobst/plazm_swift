@@ -17,14 +17,8 @@ struct ItemViewDetail: View {
 
     var body: some View {
         VStack {
-            NavigationLink(destination: Text(post.business?[0]?.companyName ?? "")) {
-                HStack{
-                    Text(post.business?[0]?.companyName ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .trailing)
-                    ImageView(withURL: post.business?[0]?.defaultImageUrl).frame(width: 32, height: 32, alignment: .center).clipShape(HexagonShape())
-                }.frame(width: 300, height: 100, alignment: .leading)
 
-            }
-
+            PlaceNavigationLink(name: post.business?[0]?.companyName, _id: post.business?[0]?._id, imageUrl: post.business?[0]?.defaultImageUrl)
             Text(post.data ?? "")
                 .font(.custom("AvenirNext-Medium", size: 14))
                 .foregroundColor(.black)
