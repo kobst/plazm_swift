@@ -123,9 +123,11 @@ class SessionProfile: ObservableObject {
         
     }
     
-    func getListDetails(listId: GraphQLID){
+    func getListDetails(listId: GraphQLID, fromMenu: Bool){
         print("getting list details" + listId)
-        feedState = .listDetail
+        
+        if fromMenu {feedState = .listDetail}
+        
         Network.shared.apollo.fetch(query: GetListDetailsQuery(id: listId, value: listDetailOffset)) {result in
                 switch result {
                 case .success(let graphQLResult):

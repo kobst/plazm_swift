@@ -43,11 +43,11 @@ struct ListTabItem: Hashable, View {
         }
     }
 
-    
-    
-
+// s
     private func getDetails() -> () {
-        return sessionProfile.getListDetails(listId: ListId)
+        //return sessionProfile.feedState = .listDetail
+        // or maybe a unique function to change feedState to .listDetail and getListDetails
+        return sessionProfile.getListDetails(listId: ListId, fromMenu: true)
     }
     
   static func == (lhs: ListTabItem, rhs: ListTabItem) -> Bool {lhs.ListId == rhs.ListId}

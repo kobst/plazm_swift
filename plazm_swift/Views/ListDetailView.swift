@@ -8,6 +8,21 @@
 import SwiftUI
 
 
+// from business detail / list explore
+struct ListDetailNavigationLink: View {
+    var name: String?
+    var _id: String?
+    var imageUrl: String?
+    
+    var body: some View {
+        NavigationLink(destination: ListDetailNavView(_listName: name ?? "", _listId: _id ?? "")){
+            ImageView(withURL: imageUrl).frame(width: 32, height: 32, alignment: .center).clipShape(Circle())
+            Text(name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .leading)
+
+        }
+    }
+}
+
 
 
 
@@ -34,11 +49,12 @@ struct ItemViewDetail: View {
 
 
 
-
+// from NavLink or SideMenu
+// from NavLink use onAppear to call session getListDetails / show a header?
+// from SideMenu just use function call on press / just show posts....
 
 struct ListDetailView: View {
     @EnvironmentObject var sessionProfile: SessionProfile
-    
     var body: some View {
         ScrollView{
             LazyVStack{
@@ -49,6 +65,36 @@ struct ListDetailView: View {
         }
     }
 }
+
+struct ListDetailNavView: View {
+    @EnvironmentObject var sessionProfile: SessionProfile
+    
+    @Environment(\.isPresented) private var isPresented
+    @Environment(\.dismiss) private var dismiss
+    
+    var _listName: String
+    var _listId: String
+    
+    var body: some View {
+        ListDetailNavHeader(name: _listName)
+        ScrollView{
+            LazyVStack{
+                ForEach(sessionProfile.detailFeed) {
+                    ItemViewDetail(post: $0)
+                }
+            }
+        }.onAppear(){sessionProfile.getListDetails(listId: _listId, fromMenu: false)}
+    }
+}
+
+
+struct ListDetailNavHeader: View {
+    var name: String
+    var body: some View {
+        Text(name).bold().foregroundColor(.cyan)
+    }
+}
+
 
 struct ListDetailView_Previews: PreviewProvider {
     static var previews: some View {

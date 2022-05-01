@@ -52,15 +52,21 @@ struct PlaceDetailView: View {
 }
 
 struct PlaceItemView: View {
-    let post: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post
+    var post: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post
 
+//    var originalList: Bool = false
+    
+//    init(post: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post){
+//        post = post
+////        switch post.postDetails?.list?._id {
+////            case
+////        }
+//    }
     
     var body: some View {
         VStack {
-            HStack(spacing: 10){
-                ImageView(withURL: post.postDetails?.list?.image).frame(width: 32, height: 32, alignment: .center).clipShape(Circle())
-                Text(post.postDetails?.list?.name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .leading)
-            }.frame(width: 300, height: 100, alignment: .leading)
+
+            ListDetailNavigationLink(name: post.postDetails?.list?.name, _id: post.postDetails?.list?._id, imageUrl: post.postDetails?.list?.image).frame(width: 300, height: 100, alignment: .leading)
 
             Text(post.postDetails?.data ?? "")
                 .font(.custom("AvenirNext-Medium", size: 14))
