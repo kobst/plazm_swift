@@ -69,38 +69,35 @@ struct MainView: View {
  
 
     var body: some View {
-//        Button(action: {
-//                    withAnimation {
-//                       self.showMenu = true
-//                    }
-//                }) {
-//                    Text("Show Menu")
-//                }
-        NavigationView{
-            VStack(alignment: .center){
-                
-                Button(action: {
-                            withAnimation {
-                               self.showMenu = true
-                            }
-                        }) {
-                            Text("Show Menu")
+        VStack{
+            Button(action: {
+                        withAnimation {
+                           self.showMenu = true
                         }
+                    }) {
+                        Text("Show Menu")
+                    }
+            
+            NavigationView{
+                VStack(alignment: .center){
+                    
+                    // how to add appropriate animation for switching feeds....
+                    switch sessionProfile.feedState {
+                        case .homeFeed:
+                            HomeFeed()
+                        case .explore:
+                            ExploreFeedView()
+                        case .listDetail:
+                            ListDetailView()
+                        case .listExplore:
+                            ListExplorerView()
+                    }
 
-                // how to add appropriate animation for switching feeds....
-                switch sessionProfile.feedState {
-                    case .homeFeed:
-                        HomeFeed()
-                    case .explore:
-                        ExploreFeedView()
-                    case .listDetail:
-                        ListDetailView()
-                    case .listExplore:
-                        ListExplorerView()
                 }
-
             }
         }
+
+
 
     }
 }

@@ -85,7 +85,6 @@ struct PlaceItemView: View {
 struct PlaceDetailPosts: View {
     var items: [SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post]
     var body: some View {
-        Text("list of psts")
         ScrollView{
             LazyVStack{
                 ForEach(items) {

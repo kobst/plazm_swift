@@ -36,6 +36,7 @@ class SessionProfile: ObservableObject {
     @Published var createdLists: [GraphQLID?] = []
     @Published var homeFeed: [GetMyFeedDataQuery.Data.GetMyFeedDatum.Datum] = []
     @Published var exploreFeed: [HomeSearchQuery.Data.HomeSearch.Datum] = []
+    @Published var selectedList: GetListDetailsQuery.Data.GetListDetail.ListDetail
     @Published var detailFeed: [GetListDetailsQuery.Data.GetListDetail.Datum] = []
     @Published var userLists: [GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List] = []
     @Published var selectedPlace: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Place? = nil
@@ -134,6 +135,9 @@ class SessionProfile: ObservableObject {
                     print("Success! Result: List Detail")
                     if let items = graphQLResult.data?.getListDetails.data?.compactMap({$0}){
                         self.detailFeed = items
+                    }
+                    if let _list = graphQLResult.data?.getListDetails.listDetails {
+                        self.selectedList = _list
                     }
                     
                 case .failure(let error):
