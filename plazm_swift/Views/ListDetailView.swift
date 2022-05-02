@@ -18,8 +18,7 @@ struct ListDetailNavigationLink: View {
         NavigationLink(destination: ListDetailNavView(_listName: name ?? "", _listId: _id ?? "")){
             ImageView(withURL: imageUrl).frame(width: 32, height: 32, alignment: .center).clipShape(Circle())
             Text(name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .leading)
-
-        }
+        }.isDetailLink(false)
     }
 }
 
