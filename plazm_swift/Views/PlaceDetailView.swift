@@ -11,15 +11,89 @@ import Apollo
 struct PlaceNavigationLink: View {
     var name: String?
     var _id: String?
+    var ownerId: String?
     var imageUrl: String?
     
     var body: some View {
-        NavigationLink(destination: PlaceDetailView(_placeName: name ?? "", _placeId: _id ?? "")){
+//        NavigationLink(destination: PlaceDetailView(_placeName: name ?? "", _placeId: _id ?? "")){
+        NavigationLink(destination: PlaceDetail(placeId: name ?? "", placeName: _id ?? "", ownerId: ownerId ?? "")){
             Text(name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .trailing)
             ImageView(withURL: imageUrl).hexagonal(with: 32.0).clipShape(HexShapeFlat())
         }
+//        .isDetailLink(false)
     }
 }
+
+
+final class PlaceDetailModel: ObservableObject {
+    @EnvironmentObject var sessionProfile: SessionProfile
+    @Published var selectedPlace: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Place? = nil
+    @Published var selectedPlacePosts: [SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post] = []
+    
+    
+    init(placeId: GraphQLID, ownerId: String){
+        getPlaceDetails(place_id: placeId, ownerId: ownerId)
+    }
+    
+    func getPlaceDetails(place_id: GraphQLID, ownerId: String){
+        let _filters = filterInput(business: false, postsByMe: true, mySubscriptions: true, others: true)
+        let sideFilter = sideFilterInput(likes: false, recent: true)
+        
+        Network.shared.apollo.fetch(query: SearchPlacesByUserIdQuery(id: place_id, value: 0, filters: _filters, ownerId: ownerId, sideFilters: sideFilter, search: "")){result in
+            switch result {
+            case .success(let graphQLResult):
+                print("Success! Result: Place Received in placedetailmodel")
+                if let _place = graphQLResult.data?.searchPlacesByUserId.place?[0] {
+                    self.selectedPlace = _place
+                }
+                if let _posts = graphQLResult.data?.searchPlacesByUserId.posts?.compactMap({$0}) {
+                    self.selectedPlacePosts = _posts
+//                    for post in _posts {
+//                        print(post.postI)
+//                    }
+                }
+                
+            case .failure(let error):
+                print("Failure! Error: \(error)")
+            }
+        
+    }
+        
+    }
+
+    
+}
+
+
+struct PlaceDetail: View {
+    @Environment(\.isPresented) private var isPresented
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var sessionProfile: SessionProfile
+    @ObservedObject var model: PlaceDetailModel
+//    var place: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Place
+//    var posts: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post
+    
+    
+    var _placeName: String?
+    var _placeId: String
+    init(placeId: GraphQLID, placeName: String, ownerId: String){
+        _placeId = placeId
+        _placeName = placeName
+        model = PlaceDetailModel(placeId: _placeId, ownerId: ownerId)
+    }
+    
+    var body: some View {
+        
+        VStack{
+            PlaceDetailHeader(placeName: model.selectedPlace?.companyName, address: model.selectedPlace?.address, imageUrl: model.selectedPlace?.defaultImageUrl)
+            PlaceDetailPosts(items: model.selectedPlacePosts)
+        }
+
+        
+    }
+}
+
+
 
 
 struct PlaceDetailView: View {

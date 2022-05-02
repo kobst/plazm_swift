@@ -18,7 +18,8 @@ struct ListDetailNavigationLink: View {
         NavigationLink(destination: ListDetailNavView(_listName: name ?? "", _listId: _id ?? "")){
             ImageView(withURL: imageUrl).frame(width: 32, height: 32, alignment: .center).clipShape(Circle())
             Text(name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .leading)
-        }.isDetailLink(false)
+        }
+//        .isDetailLink(false)
     }
 }
 
@@ -26,13 +27,14 @@ struct ListDetailNavigationLink: View {
 
 
 struct ItemViewDetail: View {
-    
+    @EnvironmentObject var sessionProfile: SessionProfile
+
     let post: GetListDetailsQuery.Data.GetListDetail.Datum
 
     var body: some View {
         VStack {
 
-            PlaceNavigationLink(name: post.business?[0]?.companyName, _id: post.business?[0]?._id, imageUrl: post.business?[0]?.defaultImageUrl)
+            PlaceNavigationLink(name: post.business?[0]?.companyName, _id: post.business?[0]?._id, ownerId: sessionProfile._user?._id, imageUrl: post.business?[0]?.defaultImageUrl)
             Text(post.data ?? "")
                 .font(.custom("AvenirNext-Medium", size: 14))
                 .foregroundColor(.black)

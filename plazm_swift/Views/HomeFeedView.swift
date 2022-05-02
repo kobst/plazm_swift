@@ -17,7 +17,8 @@ enum ItemType{
 
 
 struct ItemView: View {
-    
+    @EnvironmentObject var sessionProfile: SessionProfile
+
     let post: GetMyFeedDataQuery.Data.GetMyFeedDatum.Datum
     
     var type: ItemType = .post
@@ -28,7 +29,7 @@ struct ItemView: View {
 //                ImageView(withURL: post.listId?[0]?.media?[0]?.image).frame(width: 32, height: 32, alignment: .center).clipShape(Circle())
 //                Text(post.listId?[0]?.name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .leading)
                 ListDetailNavigationLink(name: post.listId?[0]?.name, _id: post.listId?[0]?._id, imageUrl: post.listId?[0]?.media?[0]?.image)
-                PlaceNavigationLink(name: post.business?[0]?.companyName, _id: post.business?[0]?._id, imageUrl: post.business?[0]?.defaultImageUrl)
+                PlaceNavigationLink(name: post.business?[0]?.companyName, _id: post.business?[0]?._id, ownerId: sessionProfile._user?._id, imageUrl: post.business?[0]?.defaultImageUrl)
                 
             }.frame(width: 300, height: 100, alignment: .leading)
 
@@ -37,11 +38,12 @@ struct ItemView: View {
                 .foregroundColor(.black)
                 .frame(width: 300, height: 200, alignment: .leading)
                 .lineLimit(4)
-        }.onAppear(){
-            print("showing post " + (post.business?[0]?.companyName ?? "post appeared"))
-        }.onDisappear(){
-            print("not showing post " + (post.business?[0]?.companyName ?? "post disappeared"))
         }
+//        .onAppear(){
+//            print("showing post " + (post.business?[0]?.companyName ?? "post appeared"))
+//        }.onDisappear(){
+//            print("not showing post " + (post.business?[0]?.companyName ?? "post disappeared"))
+//        }
     }
 }
 
