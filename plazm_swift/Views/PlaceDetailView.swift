@@ -11,12 +11,11 @@ import Apollo
 struct PlaceNavigationLink: View {
     var name: String?
     var _id: String?
-    var ownerId: String?
     var imageUrl: String?
     
     var body: some View {
 //        NavigationLink(destination: PlaceDetailView(_placeName: name ?? "", _placeId: _id ?? "")){
-        NavigationLink(destination: PlaceDetail(placeId: name ?? "", placeName: _id ?? "", ownerId: ownerId ?? "")){
+        NavigationLink(destination: PlaceDetail(_placeId: _id ?? "")){
             Text(name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .trailing)
             ImageView(withURL: imageUrl).hexagonal(with: 32.0).clipShape(HexShapeFlat())
         }
@@ -26,14 +25,10 @@ struct PlaceNavigationLink: View {
 
 
 final class PlaceDetailModel: ObservableObject {
-    @EnvironmentObject var sessionProfile: SessionProfile
+//    @EnvironmentObject var sessionProfile: SessionProfile
     @Published var selectedPlace: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Place? = nil
     @Published var selectedPlacePosts: [SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post] = []
     
-    
-    init(placeId: GraphQLID, ownerId: String){
-        getPlaceDetails(place_id: placeId, ownerId: ownerId)
-    }
     
     func getPlaceDetails(place_id: GraphQLID, ownerId: String){
         let _filters = filterInput(business: false, postsByMe: true, mySubscriptions: true, others: true)
@@ -69,24 +64,24 @@ struct PlaceDetail: View {
     @Environment(\.isPresented) private var isPresented
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var sessionProfile: SessionProfile
-    @ObservedObject var model: PlaceDetailModel
-//    var place: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Place
-//    var posts: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post
-    
+    @ObservedObject var model = PlaceDetailModel()
+
     
     var _placeName: String?
     var _placeId: String
-    init(placeId: GraphQLID, placeName: String, ownerId: String){
-        _placeId = placeId
-        _placeName = placeName
-        model = PlaceDetailModel(placeId: _placeId, ownerId: ownerId)
-    }
+//    init(placeId: GraphQLID, placeName: String, ownerId: String){
+//        _placeId = placeId
+//        _placeName = placeName
+//        model = PlaceDetailModel(placeId: _placeId, ownerId: ownerId)
+//    }
     
     var body: some View {
-        
+        Text(_placeName ?? "")
         VStack{
             PlaceDetailHeader(placeName: model.selectedPlace?.companyName, address: model.selectedPlace?.address, imageUrl: model.selectedPlace?.defaultImageUrl)
             PlaceDetailPosts(items: model.selectedPlacePosts)
+        }.onAppear(){
+            model.getPlaceDetails(place_id: _placeId, ownerId: sessionProfile._user?._id ?? "")
         }
 
         

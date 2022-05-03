@@ -34,7 +34,7 @@ struct PlaceView: View {
         ZStack(alignment: .topTrailing) {
             Rectangle().foregroundColor(.gray).frame(width: 300, height: 170)
 //            ImageView(withURL: place.defaultImageUrl).frame(width: 250, height: 150, alignment: .center)
-            PlaceNavigationLink(name: place.companyName, _id: place._id, ownerId: sessionProfile._user?._id, imageUrl: place.defaultImageUrl).frame(width: 100, height: 100, alignment: .topTrailing).foregroundColor(.green)
+            PlaceNavigationLink(name: place.companyName, _id: place._id, imageUrl: place.defaultImageUrl).frame(width: 100, height: 100, alignment: .topTrailing).foregroundColor(.green)
             }.frame(width: 300, height: 170, alignment: .center)
 //        .onAppear(){
 //            print("showing post " + (place.companyName ?? ""))
