@@ -27,23 +27,20 @@ struct ExploreFeedView: View {
 struct PlaceView: View {
     
     let place: HomeSearchQuery.Data.HomeSearch.Datum
+    @EnvironmentObject var sessionProfile: SessionProfile
 
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            Rectangle().foregroundColor(.black).frame(width: 300, height: 170)
+            Rectangle().foregroundColor(.gray).frame(width: 300, height: 170)
 //            ImageView(withURL: place.defaultImageUrl).frame(width: 250, height: 150, alignment: .center)
-            HStack{
-                Text(place.companyName ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.red).frame(width: 150, height: 100)
-                ImageView(withURL: place.defaultImageUrl).hexagonal(with: 32.0).clipShape(HexShapeFlat())
-            }.frame(width: 100, height: 100, alignment: .topTrailing).foregroundColor(.green)
-
-        }.frame(width: 300, height: 170, alignment: .center)
-        .onAppear(){
-            print("showing post " + (place.companyName ?? ""))
-        }.onDisappear(){
-                    print("not showing post " + (place.companyName ?? ""))
-        }
+            PlaceNavigationLink(name: place.companyName, _id: place._id, imageUrl: place.defaultImageUrl).frame(width: 100, height: 100, alignment: .topTrailing).foregroundColor(.green)
+            }.frame(width: 300, height: 170, alignment: .center)
+//        .onAppear(){
+//            print("showing post " + (place.companyName ?? ""))
+//        }.onDisappear(){
+//                    print("not showing post " + (place.companyName ?? ""))
+//        }
 }
     
 }

@@ -80,3 +80,21 @@ extension GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList
     }
 }
 
+
+extension SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post: Equatable {
+        public static func == (lhs: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post, rhs: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post) -> Bool {
+            return lhs.postId == rhs.postId
+        }
+}
+//
+extension SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post: Hashable {
+    public func hash(into hasher: inout Hasher){
+        hasher.combine(postId)
+    }
+}
+//
+extension SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post: Identifiable {
+    public var id: String {
+        return postId!
+    }
+}

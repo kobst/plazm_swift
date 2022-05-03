@@ -40,6 +40,7 @@
 		E7EAA3A1281B491100B0C569 /* ListExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA3A0281B491100B0C569 /* ListExplorerView.swift */; };
 		E7EAA3A3281B64D600B0C569 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */; };
 		E7EAA3A5281C843000B0C569 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA3A4281C842F00B0C569 /* PlaceDetailView.swift */; };
+		E7EAA3A728206D6C00B0C569 /* RootPresentationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA3A628206D6C00B0C569 /* RootPresentationMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		E7EAA3A0281B491100B0C569 /* ListExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExplorerView.swift; sourceTree = "<group>"; };
 		E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		E7EAA3A4281C842F00B0C569 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
+		E7EAA3A628206D6C00B0C569 /* RootPresentationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresentationMode.swift; sourceTree = "<group>"; };
 		F4BC3025730F4E1ECEA3C2CA /* Pods-plazm_swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swiftTests.release.xcconfig"; path = "Target Support Files/Pods-plazm_swiftTests/Pods-plazm_swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5BB6F976C254BA6B58E0D6F /* Pods_plazm_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				E7EAA39C2819B5A100B0C569 /* ImageHandler.swift */,
+				E7EAA3A628206D6C00B0C569 /* RootPresentationMode.swift */,
 				E749065D2814EED9005D1C10 /* SessionManager.swift */,
 				E72685732816368D0018EB59 /* SessionProfile.swift */,
 				E72685832817892A0018EB59 /* Extensions.swift */,
@@ -580,6 +583,7 @@
 				E7BD607B2815A6E700F851B3 /* SignUpView.swift in Sources */,
 				E7EAA3A3281B64D600B0C569 /* ListDetailView.swift in Sources */,
 				E7EAA39F281B2DB000B0C569 /* ExploreFeedView.swift in Sources */,
+				E7EAA3A728206D6C00B0C569 /* RootPresentationMode.swift in Sources */,
 				E706C7EB2814C6760078F2B0 /* plazm_swiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

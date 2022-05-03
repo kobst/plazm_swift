@@ -14,8 +14,9 @@ struct ListExploreCell: View {
     var body: some View {
         VStack {
 //            Rectangle().foregroundColor(.black).frame(width: 150, height: 150)
-            ImageView(withURL: list.media?[0]?.image).frame(width: 250, height: 150, alignment: .center)
-            Text(list.name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.red).frame(width: 150, height: 100)
+//            ImageView(withURL: list.media?[0]?.image).frame(width: 250, height: 150, alignment: .center)
+//            Text(list.name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.red).frame(width: 150, height: 100)
+            ListDetailNavigationLink(name: list.name, _id: list._id, imageUrl: list.media?[0]?.image)
             Text(list.description ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.red).frame(width: 150, height: 200)
 
         }.frame(width: 500, height: 170, alignment: .center)

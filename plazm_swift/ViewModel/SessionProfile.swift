@@ -42,6 +42,7 @@ class SessionProfile: ObservableObject {
     @Published var selectedPlacePosts: [SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post] = []
     @Published var location: Coordinates = Coordinates(lat: 40.7505335, lng: -73.9759307)
     @Published var searchTerms: String = ""
+//    @Published var currentView: View? = nil
     
     
     func getUser(auth_user_sub: GraphQLID) {
@@ -123,9 +124,11 @@ class SessionProfile: ObservableObject {
         
     }
     
-    func getListDetails(listId: GraphQLID){
+    func getListDetails(listId: GraphQLID, fromMenu: Bool){
         print("getting list details" + listId)
-        feedState = .listDetail
+        
+        if fromMenu {feedState = .listDetail}
+        
         Network.shared.apollo.fetch(query: GetListDetailsQuery(id: listId, value: listDetailOffset)) {result in
                 switch result {
                 case .success(let graphQLResult):
@@ -156,6 +159,9 @@ class SessionProfile: ObservableObject {
                 }
                 if let _posts = graphQLResult.data?.searchPlacesByUserId.posts?.compactMap({$0}) {
                     self.selectedPlacePosts = _posts
+//                    for post in _posts {
+//                        print(post.postI)
+//                    }
                 }
                 
             case .failure(let error):

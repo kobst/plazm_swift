@@ -28,8 +28,6 @@ struct ListTabItem: Hashable, View {
         ListId = info.id
         if let url = info.media?[0]?.image {ListImageUrl = url}
 //        action = sessionProfile.getListDetails(listId: info.id)
-        
-       
     }
 
     var body: some View {
@@ -43,11 +41,9 @@ struct ListTabItem: Hashable, View {
         }
     }
 
-    
-    
-
+// s
     private func getDetails() -> () {
-        return sessionProfile.getListDetails(listId: ListId)
+        return sessionProfile.getListDetails(listId: ListId, fromMenu: true)
     }
     
   static func == (lhs: ListTabItem, rhs: ListTabItem) -> Bool {lhs.ListId == rhs.ListId}
@@ -66,9 +62,9 @@ struct SideMenuView: View {
         MenuCloseButton(showMenu: self.$showMenu).padding(.top, 20)
         Divider().foregroundColor(.white)
         VStack(alignment: .leading) {
-            TabFeedItem(imageTitle: "safari", feedType: .explore).padding()
-            TabFeedItem(imageTitle: "house", feedType: .homeFeed).padding()
-            TabFeedItem(imageTitle: "list.bullet", feedType: .listExplore).padding()
+            CoreFeedItem(imageTitle: "safari", feedType: .explore).padding()
+            CoreFeedItem(imageTitle: "house", feedType: .homeFeed).padding()
+            CoreFeedItem(imageTitle: "list.bullet", feedType: .listExplore).padding()
         }
         Spacer()
         ListTabMenu()
@@ -119,7 +115,7 @@ struct ListTabMenu: View {
     }
 }
 
-struct TabFeedItem: View {
+struct CoreFeedItem: View {
     
     @EnvironmentObject var sessionProfile: SessionProfile
     var imageTitle: String

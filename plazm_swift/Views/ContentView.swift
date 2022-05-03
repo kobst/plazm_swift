@@ -18,11 +18,14 @@ struct ContentView: View {
     
     @State var showMenu = false
     @State var authId: String
-    
+
+    let alignment = Alignment(horizontal: .leading, vertical: .top)
 
     var body: some View {
         // why does gesture slide out not work when pulling out?
+        
         let drag = DragGesture().onEnded { event in
+            print("event   \(event.location)")
           if event.location.x < 200 && abs(event.translation.height) < 50 && abs(event.translation.width) > 50 {
             withAnimation {
               self.showMenu = event.translation.width > 0
@@ -31,13 +34,21 @@ struct ContentView: View {
         }
         
         return GeometryReader { geometry in
-            ZStack(alignment: .leading) {
-                    MainView(showMenu: self.$showMenu).frame(width: geometry.size.width, height: geometry.size.height)
-                    if self.showMenu {
+            ZStack(alignment: alignment) {
+                LinearGradient(
+                    colors: [.orange, .red],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
+                MainView(showMenu: self.$showMenu).frame(maxWidth: 400, maxHeight: 600)
+                if self.showMenu {
                         SideMenuView(showMenu: self.$showMenu)
                             .frame(width: 150)
                             .transition(.move(edge: .leading))
-                    }
+                        }
+                    
+
             }.environmentObject(sessionProfile)}
             .onAppear(){
                 self.sessionProfile.getUser(auth_user_sub: authId)
@@ -55,14 +66,11 @@ struct MainView: View {
         
     @EnvironmentObject var sessionProfile: SessionProfile
     @Binding var showMenu: Bool
+    @State private var isActive : Bool = false
  
 
     var body: some View {
-        
-        VStack(alignment: .center){
-            Text(sessionProfile._user?.email ?? "no email")
-                .padding()
-            
+        VStack {
             Button(action: {
                         withAnimation {
                            self.showMenu = true
@@ -70,29 +78,24 @@ struct MainView: View {
                     }) {
                         Text("Show Menu")
                     }
+            NavigationView{
+                VStack(alignment: .center){
+                    // how to add appropriate animation for switching feeds....
+                    switch sessionProfile.feedState {
+                        case .homeFeed:
+                            HomeFeed()
+                        case .explore:
+                            ExploreFeedView()
+                        case .listDetail:
+                            ListDetailView()
+                        case .listExplore:
+                            ListExplorerView()
+                    }
+                }
+            }.navigationViewStyle(StackNavigationViewStyle()).environment(\.rootPresentationMode, self.$isActive)
             
-            switch sessionProfile.feedState {
-                case .homeFeed:
-                    withAnimation{
-                            HomeFeed().transition(.scale)
-//                    .animation(.easeInOut(duration: 2))
-                    }
-                case .explore:
-//                    withAnimation(.easeInOut(duration: 1.0)){
-                withAnimation{
-                        ExploreFeedView().transition(.scale)
-                    }
-                case .listDetail:
-                    withAnimation{
-                        ListDetailView().transition(.scale)
-                    }
-                case .listExplore:
-                    withAnimation {
-                        ListExplorerView().transition(.scale)
-                    }
-            }
-
         }
+
     }
 }
 
