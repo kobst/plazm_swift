@@ -42,6 +42,7 @@ class SessionProfile: ObservableObject {
     @Published var selectedPlacePosts: [SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post] = []
     @Published var location: Coordinates = Coordinates(lat: 40.7505335, lng: -73.9759307)
     @Published var searchTerms: String = ""
+//    @Published var currentView: View? = nil
     
     
     func getUser(auth_user_sub: GraphQLID) {

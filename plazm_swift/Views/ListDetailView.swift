@@ -59,6 +59,10 @@ final class ListDetailModel: ObservableObject {
     
 struct ListDetail: View {
     
+    @State private var isActive : Bool = false
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    @Environment(\.rootPresentationMode) private var rootPresentationMode: Binding<RootPresentationMode>
+    
     @EnvironmentObject var sessionProfile: SessionProfile
     @ObservedObject var model = ListDetailModel()
     
@@ -74,13 +78,17 @@ struct ListDetail: View {
             ScrollView{
                 LazyVStack{
                     ForEach(model.selectedListPosts) {
-                        ItemViewDetail(post: $0)
+                        ListItem(post: $0)
                     }
                 }
             }
             
         }
 
+    }
+    
+    func popToRoot() {
+        self.rootPresentationMode.wrappedValue.dismiss()
     }
     
     
@@ -90,7 +98,7 @@ struct ListDetail: View {
 
 
 
-struct ItemViewDetail: View {
+struct ListItem: View {
     @EnvironmentObject var sessionProfile: SessionProfile
 
     let post: GetListDetailsQuery.Data.GetListDetail.Datum
@@ -124,7 +132,7 @@ struct ListDetailView: View {
         ScrollView{
             LazyVStack{
                 ForEach(sessionProfile.detailFeed) {
-                    ItemViewDetail(post: $0)
+                    ListItem(post: $0)
                 }
             }
         }
@@ -145,7 +153,7 @@ struct ListDetailNavView: View {
         ScrollView{
             LazyVStack{
                 ForEach(sessionProfile.detailFeed) {
-                    ItemViewDetail(post: $0)
+                    ListItem(post: $0)
                 }
             }
         }.onAppear(){sessionProfile.getListDetails(listId: _listId, fromMenu: false)}

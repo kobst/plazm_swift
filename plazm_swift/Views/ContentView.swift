@@ -91,7 +91,6 @@ struct MainView: View {
                         case .listExplore:
                             ListExplorerView()
                     }
-
                 }
             }.navigationViewStyle(StackNavigationViewStyle()).environment(\.rootPresentationMode, self.$isActive)
             

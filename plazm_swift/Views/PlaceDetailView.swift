@@ -61,8 +61,10 @@ final class PlaceDetailModel: ObservableObject {
 
 
 struct PlaceDetail: View {
-    @Environment(\.isPresented) private var isPresented
-    @Environment(\.dismiss) private var dismiss
+    @State private var isActive : Bool = false
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    @Environment(\.rootPresentationMode) private var rootPresentationMode: Binding<RootPresentationMode>
+    
     @EnvironmentObject var sessionProfile: SessionProfile
     @ObservedObject var model = PlaceDetailModel()
 
@@ -83,54 +85,51 @@ struct PlaceDetail: View {
         }.onAppear(){
             model.getPlaceDetails(place_id: _placeId, ownerId: sessionProfile._user?._id ?? "")
         }
-
-        
+    }
+    
+    
+    
+    func popToRoot() {
+        self.rootPresentationMode.wrappedValue.dismiss()
     }
 }
 
 
 
 
-struct PlaceDetailView: View {
-    @Environment(\.isPresented) private var isPresented
-    @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var sessionProfile: SessionProfile
-    
-//    var place: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Place
-//    var posts: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post
-    
-    
-    var _placeName: String?
-    var _placeId: String
-//    init(placeId: GraphQLID, placeName: String){
-//        _placeId = placeId
-//        _placeName = placeName
-//        sessionProfile.getPlaceDetails(place_id: placeId)
+//struct PlaceDetailView: View {
+//    @Environment(\.isPresented) private var isPresented
+//    @Environment(\.dismiss) private var dismiss
+//    @EnvironmentObject var sessionProfile: SessionProfile
+//
+////    var place: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Place
+////    var posts: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post
+//
+//
+//    var _placeName: String?
+//    var _placeId: String
+////    init(placeId: GraphQLID, placeName: String){
+////        _placeId = placeId
+////        _placeName = placeName
+////        sessionProfile.getPlaceDetails(place_id: placeId)
+////    }
+//
+//    var body: some View {
+//
+//        VStack{
+//            PlaceDetailHeader(placeName: sessionProfile.selectedPlace?.companyName, address: sessionProfile.selectedPlace?.address, imageUrl: sessionProfile.selectedPlace?.defaultImageUrl).onAppear()
+//                {sessionProfile.getPlaceDetails(place_id: _placeId)}
+//            PlaceDetailPosts(items: sessionProfile.selectedPlacePosts)
+//        }
+//
+//
 //    }
-    
-    var body: some View {
-        
-        VStack{
-            PlaceDetailHeader(placeName: sessionProfile.selectedPlace?.companyName, address: sessionProfile.selectedPlace?.address, imageUrl: sessionProfile.selectedPlace?.defaultImageUrl).onAppear()
-                {sessionProfile.getPlaceDetails(place_id: _placeId)}
-            PlaceDetailPosts(items: sessionProfile.selectedPlacePosts)
-        }
-
-        
-    }
-}
+//}
 
 struct PlaceItemView: View {
     var post: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post
 
 //    var originalList: Bool = false
-    
-//    init(post: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post){
-//        post = post
-////        switch post.postDetails?.list?._id {
-////            case
-////        }
-//    }
     
     var body: some View {
         VStack {
@@ -154,7 +153,7 @@ struct PlaceItemView: View {
 struct PlaceDetailPosts: View {
     var items: [SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post]
     var body: some View {
-        Text("list of psts")
+//        Text("list of psts")
         ScrollView{
             LazyVStack{
                 ForEach(items) {
