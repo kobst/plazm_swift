@@ -195,8 +195,7 @@ class MapViewController: UIViewController {
     
    override public func viewDidLoad() {
        super.viewDidLoad()
-       let myResourceOptions = ResourceOptions(accessToken: "sk.eyJ1Ijoia29ic3RyIiwiYSI6ImNsMnFkN291ajA4aWozY3B1cTA2ODk0bnkifQ.-utTHxq6nYDdmVgVMW_hYA")
-       
+       let myResourceOptions = ResourceOptions(accessToken: Bundle.main.object(forInfoDictionaryKey: "MBXAccessToken") as! String)
        if let _userLocation = userLocation {
            centerPt = _userLocation
        }
@@ -212,6 +211,9 @@ class MapViewController: UIViewController {
        pointManager = mapView.annotations.makePointAnnotationManager()
        circleManager = mapView.annotations.makeCircleAnnotationManager()
        self.view.addSubview(mapView)
+       
+       
+       
        
    }
     
