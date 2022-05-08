@@ -34,6 +34,8 @@
 		E7BD60792815A69B00F851B3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD60782815A69B00F851B3 /* SignInView.swift */; };
 		E7BD607B2815A6E700F851B3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD607A2815A6E700F851B3 /* SignUpView.swift */; };
 		E7BD607D2815A73C00F851B3 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD607C2815A73C00F851B3 /* ConfirmationView.swift */; };
+		E7E6083A2821973C005DA767 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = E7E608392821973C005DA767 /* MapboxMaps */; };
+		E7E6083D2821CDC2005DA767 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6083C2821CDC2005DA767 /* MapView.swift */; };
 		E7EAA39B28197E8900B0C569 /* HomeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA39A28197E8900B0C569 /* HomeFeedView.swift */; };
 		E7EAA39D2819B5A100B0C569 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA39C2819B5A100B0C569 /* ImageHandler.swift */; };
 		E7EAA39F281B2DB000B0C569 /* ExploreFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAA39E281B2DB000B0C569 /* ExploreFeedView.swift */; };
@@ -95,6 +97,7 @@
 		E7BD60782815A69B00F851B3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E7BD607A2815A6E700F851B3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E7BD607C2815A73C00F851B3 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		E7E6083C2821CDC2005DA767 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E7EAA39A28197E8900B0C569 /* HomeFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedView.swift; sourceTree = "<group>"; };
 		E7EAA39C2819B5A100B0C569 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		E7EAA39E281B2DB000B0C569 /* ExploreFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreFeedView.swift; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 		E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		E7EAA3A4281C842F00B0C569 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		E7EAA3A628206D6C00B0C569 /* RootPresentationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresentationMode.swift; sourceTree = "<group>"; };
+		E7EAA3A82821920600B0C569 /* plazm-swift-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "plazm-swift-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F4BC3025730F4E1ECEA3C2CA /* Pods-plazm_swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plazm_swiftTests.release.xcconfig"; path = "Target Support Files/Pods-plazm_swiftTests/Pods-plazm_swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5BB6F976C254BA6B58E0D6F /* Pods_plazm_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_plazm_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,6 +117,7 @@
 			files = (
 				DA04B01FF28D5ED42C5FB09D /* Pods_plazm_swift.framework in Frameworks */,
 				E74906492814CAA8005D1C10 /* ApolloWebSocket in Frameworks */,
+				E7E6083A2821973C005DA767 /* MapboxMaps in Frameworks */,
 				E74906472814CAA8005D1C10 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +199,7 @@
 		E706C7E92814C6760078F2B0 /* plazm_swift */ = {
 			isa = PBXGroup;
 			children = (
+				E7EAA3A82821920600B0C569 /* plazm-swift-Info.plist */,
 				E7268585281852A40018EB59 /* Views */,
 				E72685802817320D0018EB59 /* ViewModel */,
 				E74906522814D250005D1C10 /* schema.json */,
@@ -250,15 +256,13 @@
 		E7268585281852A40018EB59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E7E6083B28219832005DA767 /* CoreFeeds */,
 				E7268586281852D20018EB59 /* SignIn */,
 				E706C7EA2814C6760078F2B0 /* plazm_swiftApp.swift */,
 				E706C7EC2814C6760078F2B0 /* ContentView.swift */,
 				E7268587281853300018EB59 /* SideMenu.swift */,
-				E7EAA39A28197E8900B0C569 /* HomeFeedView.swift */,
-				E7EAA39E281B2DB000B0C569 /* ExploreFeedView.swift */,
-				E7EAA3A0281B491100B0C569 /* ListExplorerView.swift */,
-				E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */,
 				E7EAA3A4281C842F00B0C569 /* PlaceDetailView.swift */,
+				E7E6083C2821CDC2005DA767 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +293,17 @@
 			path = "Auth Session";
 			sourceTree = "<group>";
 		};
+		E7E6083B28219832005DA767 /* CoreFeeds */ = {
+			isa = PBXGroup;
+			children = (
+				E7EAA39A28197E8900B0C569 /* HomeFeedView.swift */,
+				E7EAA39E281B2DB000B0C569 /* ExploreFeedView.swift */,
+				E7EAA3A2281B64D600B0C569 /* ListDetailView.swift */,
+				E7EAA3A0281B491100B0C569 /* ListExplorerView.swift */,
+			);
+			path = CoreFeeds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,6 +326,7 @@
 			packageProductDependencies = (
 				E74906462814CAA8005D1C10 /* Apollo */,
 				E74906482814CAA8005D1C10 /* ApolloWebSocket */,
+				E7E608392821973C005DA767 /* MapboxMaps */,
 			);
 			productName = plazm_swift;
 			productReference = E706C7E72814C6760078F2B0 /* plazm_swift.app */;
@@ -389,6 +405,7 @@
 			mainGroup = E706C7DE2814C6760078F2B0;
 			packageReferences = (
 				E74906452814CAA8005D1C10 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				E7E608382821973C005DA767 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 			);
 			productRefGroup = E706C7E82814C6760078F2B0 /* Products */;
 			projectDirPath = "";
@@ -572,6 +589,7 @@
 				E7BD60772815A64D00F851B3 /* MasterView.swift in Sources */,
 				E7EAA39B28197E8900B0C569 /* HomeFeedView.swift in Sources */,
 				E7EAA3A5281C843000B0C569 /* PlaceDetailView.swift in Sources */,
+				E7E6083D2821CDC2005DA767 /* MapView.swift in Sources */,
 				E74906552814D48A005D1C10 /* API.swift in Sources */,
 				E72685742816368D0018EB59 /* SessionProfile.swift in Sources */,
 				E7EAA3A1281B491100B0C569 /* ListExplorerView.swift in Sources */,
@@ -746,6 +764,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"plazm_swift/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "plazm-swift-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -775,6 +794,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"plazm_swift/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "plazm-swift-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -919,6 +939,14 @@
 				minimumVersion = 0.51.2;
 			};
 		};
+		E7E608382821973C005DA767 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.4.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -931,6 +959,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E74906452814CAA8005D1C10 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
+		};
+		E7E608392821973C005DA767 /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7E608382821973C005DA767 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-
+import CoreLocation
 
 enum ItemType{
     case post
@@ -20,14 +20,12 @@ struct ItemView: View {
     @EnvironmentObject var sessionProfile: SessionProfile
 
     let post: GetMyFeedDataQuery.Data.GetMyFeedDatum.Datum
-    
+//    let index: Int
     var type: ItemType = .post
 
     var body: some View {
         VStack {
-            HStack(spacing: 10){
-//                ImageView(withURL: post.listId?[0]?.media?[0]?.image).frame(width: 32, height: 32, alignment: .center).clipShape(Circle())
-//                Text(post.listId?[0]?.name ?? "").font(.custom("AvenirNext-Medium", size: 16)).foregroundColor(.black).frame(width: 100, height: 100, alignment: .leading)
+            HStack(){
                 ListDetailNavigationLink(name: post.listId?[0]?.name, _id: post.listId?[0]?._id, imageUrl: post.listId?[0]?.media?[0]?.image)
                 PlaceNavigationLink(name: post.business?[0]?.companyName, _id: post.business?[0]?._id, imageUrl: post.business?[0]?.defaultImageUrl)
                 
@@ -36,14 +34,24 @@ struct ItemView: View {
             Text(post.data ?? "")
                 .font(.custom("AvenirNext-Medium", size: 14))
                 .foregroundColor(.black)
-                .frame(width: 300, height: 200, alignment: .leading)
+                .frame(width: 300, height: 100, alignment: .leading)
                 .lineLimit(4)
         }
-//        .onAppear(){
-//            print("showing post " + (post.business?[0]?.companyName ?? "post appeared"))
-//        }.onDisappear(){
-//            print("not showing post " + (post.business?[0]?.companyName ?? "post disappeared"))
-//        }
+        .onAppear(){
+            let _lng = post.businessLocation?.coordinates?[0]
+            let _lat = post.businessLocation?.coordinates?[1]
+            let _id = post._id
+//            sessionProfile.addToMap(lat: _lat, lng: _lng, id: String(index))
+            sessionProfile.addToMap(lat: _lat, lng: _lng, id: _id)
+
+     
+        }.onDisappear(){
+            let _id = post._id
+            if let id = _id {
+//                sessionProfile.removeFromMap(_id: String(index))
+                sessionProfile.removeFromMap(_id: id)
+            }
+        }
     }
 }
 
@@ -58,9 +66,31 @@ struct HomeFeed: View {
             LazyVStack{
                 ForEach(sessionProfile.homeFeed) {
                     ItemView(post: $0)
+                }.onAppear(){
+                    sessionProfile.getFeedLocations()
                 }
             }
         }
     }
     
 }
+
+
+
+//struct HomeFeedEnumerated: View {
+//
+//    @EnvironmentObject var sessionProfile: SessionProfile
+//
+//    var body: some View {
+//        ScrollView{
+//            LazyVStack{
+//                ForEach(Array(zip(sessionProfile.homeFeed.indices, sessionProfile.homeFeed)), id: \.0) { index, item in
+//                    ItemView(post: item, index: index)                }
+//            }
+//        }
+//    }
+//
+//}
+
+
+

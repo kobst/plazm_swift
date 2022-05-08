@@ -80,6 +80,8 @@ struct ListDetail: View {
                     ForEach(model.selectedListPosts) {
                         ListItem(post: $0)
                     }
+                }.onAppear(){
+                    sessionProfile.getFeedLocations()
                 }
             }
             
@@ -113,9 +115,16 @@ struct ListItem: View {
                 .frame(width: 300, height: 200, alignment: .leading)
                 .lineLimit(4)
         }.onAppear(){
-            print("showing post " + (post.business?[0]?.companyName ?? "post appeared"))
+            let _lng = post.businessLocation?.coordinates?[0]
+            let _lat = post.businessLocation?.coordinates?[1]
+            let _id = post._id
+            sessionProfile.addToMap(lat: _lat, lng: _lng, id: _id)
+     
         }.onDisappear(){
-            print("not showing post " + (post.business?[0]?.companyName ?? "post disappeared"))
+            let _id = post._id
+            if let id = _id {
+                sessionProfile.removeFromMap(_id: id)
+            }
         }
     }
 }

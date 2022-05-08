@@ -8,11 +8,15 @@
 import SwiftUI
 import Apollo
 import Foundation
+import Turf
+import CoreLocation
 
 struct Coordinates {
 var lat: Double
 var lng: Double
 }
+
+
 
 enum FeedState: String {
     case homeFeed="home"
@@ -27,7 +31,10 @@ class SessionProfile: ObservableObject {
     var homeFeedOffset: Int = 0
     var listDetailOffset: Int = 0
     var exploreFeedOffset: Int = 0
-    @Published var feedState: FeedState = .homeFeed
+    @State var workItem: DispatchWorkItem?
+    @State var publishLocations: Bool = false
+
+    @Published var feedState: FeedState = .homeFeed 
     @Published var test = "TEST"
     @Published var _filter = homeSearchFilterInput(closest: true, updated: false)
     @Published var _user: GetUserQuery.Data.GetUser.User? = nil
@@ -40,8 +47,15 @@ class SessionProfile: ObservableObject {
     @Published var userLists: [GetUserCreatedAndFollowedListsQuery.Data.GetUserCreatedAndFollowedList.List] = []
     @Published var selectedPlace: SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Place? = nil
     @Published var selectedPlacePosts: [SearchPlacesByUserIdQuery.Data.SearchPlacesByUserId.Post] = []
-    @Published var location: Coordinates = Coordinates(lat: 40.7505335, lng: -73.9759307)
+    @Published var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 40.7505335, longitude: -73.9759307)
+    @Published var locations: [CLLocationCoordinate2D] = []
+    @Published var locationIdPairs: [(id: String, coord: CLLocationCoordinate2D)] = []
+    @Published var locationIdRemove: [String] = []
+    @Published var addLocation: (id: String, coord: CLLocationCoordinate2D)? = nil
+    @Published var removeLocation: String? = nil
+    @Published var tempLocationIdPairs: [(id: String, coord: CLLocationCoordinate2D)] = []
     @Published var searchTerms: String = ""
+    @Published var refreshLocations: Bool = false
 //    @Published var currentView: View? = nil
     
     
@@ -75,7 +89,7 @@ class SessionProfile: ObservableObject {
     
     func getHomeFeed(user_id: GraphQLID){
    
-        Network.shared.apollo.fetch(query: GetMyFeedDataQuery(id: user_id, value: homeFeedOffset, filters: _filter, longitude: location.lng, latitude: location.lat, search: searchTerms)) {result in
+        Network.shared.apollo.fetch(query: GetMyFeedDataQuery(id: user_id, value: homeFeedOffset, filters: _filter, longitude: userLocation.longitude, latitude: userLocation.latitude, search: searchTerms)) {result in
             switch result {
                     case .success(let graphQLResult):
                         print("Success! Result: HomeFeed")
@@ -110,7 +124,7 @@ class SessionProfile: ObservableObject {
     }
     
     func explore(){
-        Network.shared.apollo.fetch(query: HomeSearchQuery(search: searchTerms, value: exploreFeedOffset, filters: _filter, longitude: location.lng, latitude: location.lat)) {result in
+        Network.shared.apollo.fetch(query: HomeSearchQuery(search: searchTerms, value: exploreFeedOffset, filters: _filter, longitude: userLocation.longitude, latitude: userLocation.latitude)) {result in
             switch result {
             case .success(let graphQLResult):
                 print("Success! Result: Explore")
@@ -136,6 +150,8 @@ class SessionProfile: ObservableObject {
                     if let items = graphQLResult.data?.getListDetails.data?.compactMap({$0}){
                         self.detailFeed = items
                     }
+                    self.getFeedLocations()
+
                     
                 case .failure(let error):
                     print("Failure! Error: \(error)")
@@ -172,6 +188,80 @@ class SessionProfile: ObservableObject {
         
     }
     
+    
+
+    
+    func addToMap(lat: Double?, lng: Double?, id: String?) {
+        if let _lat = lat, let _lng = lng, let _id = id  {
+            let coordinates = CLLocationCoordinate2D(latitude: _lat, longitude: _lng)
+            let element = (id: _id, coord: coordinates)
+            locationIdPairs.append(element)
+            addLocation = element
+        }
+    }
+    
+    
+    func removeFromMap(_id: String?){
+
+        if let id = _id {
+            locationIdPairs.removeAll(where: {$0.id == id})
+            removeLocation = id
+            locationIdRemove.append(id)
+        }
+        
+
+    }
+    
+    func toPublishedLocations(){
+
+        print("published locations + \(publishLocations)")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                print("goooooo")
+                self.locationIdPairs = self.tempLocationIdPairs
+        }
+//        workItem?.cancel()
+//        workItem = DispatchWorkItem {
+//            print("work item")
+//            self.locationIdPairs = self.tempLocationIdPairs
+//        }
+//        if let work = workItem {
+//            print("work item")
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: work)
+//        }
+    }
+    
+    
+    func getFeedLocations(){
+        // call this on every api call?
+        print("get feed locations")
+        var array: [CLLocationCoordinate2D] = []
+        switch feedState {
+        case .homeFeed:
+            for post in homeFeed {
+                if let lng = post.businessLocation?.coordinates?[0], let lat = post.businessLocation?.coordinates?[1] {
+                    array.append(CLLocationCoordinate2D(latitude: lat, longitude: lng))
+                }
+            }
+        case .explore:
+            for post in exploreFeed {
+                if let lng = post.location?.coordinates?[0], let lat = post.location?.coordinates?[1] {
+                    array.append(CLLocationCoordinate2D(latitude: lat, longitude: lng))
+                }
+            }
+        case .listDetail:
+            for post in detailFeed {
+                if let lng = post.businessLocation?.coordinates?[0], let lat =  post.businessLocation?.coordinates?[1] {
+                    array.append(CLLocationCoordinate2D(latitude: lat, longitude: lng))
+                }
+            }
+        case .listExplore:
+            print("list explore")
+        }
+        print(array.count)
+        locations = array
+        refreshLocations = true
+        
+    }
 
 
 }
